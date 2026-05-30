@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { categories, site } from "@/data/site";
 import { Icon } from "./Icons";
 
@@ -46,14 +47,27 @@ export function Products() {
 
       <div className="mt-10 space-y-14">
         {shown.map((cat) => (
-          <div key={cat.id}>
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent/10 text-accent ring-1 ring-accent/20">
-                <Icon name={cat.icon} className="h-5 w-5" />
-              </span>
-              <div>
-                <h3 className="text-lg font-bold">{cat.title}</h3>
-                <p className="text-sm text-white/55">{cat.subtitle}</p>
+          <div key={cat.id} className="scroll-mt-24" id={cat.id}>
+            <div className="relative overflow-hidden rounded-3xl">
+              <Image
+                src={cat.image}
+                alt={cat.title}
+                width={1280}
+                height={520}
+                sizes="(max-width: 768px) 100vw, 1200px"
+                className="h-44 w-full object-cover sm:h-56"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/10" />
+              <div className="absolute inset-0 flex items-center">
+                <div className="flex items-center gap-4 px-5 sm:px-8">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent/15 text-accent ring-1 ring-accent/30 backdrop-blur">
+                    <Icon name={cat.icon} className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-black sm:text-2xl">{cat.title}</h3>
+                    <p className="mt-0.5 max-w-md text-sm text-white/70">{cat.subtitle}</p>
+                  </div>
+                </div>
               </div>
             </div>
 

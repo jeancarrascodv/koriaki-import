@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
 const links = [
+  { href: "#galeria", label: "Galería" },
   { href: "#productos", label: "Productos" },
   { href: "#servicios", label: "Servicios" },
   { href: "#nosotros", label: "Nosotros" },

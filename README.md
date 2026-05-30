@@ -27,6 +27,12 @@ Abre [http://localhost:3000](http://localhost:3000).
 - Cambia `whatsapp` por el número real (formato internacional sin `+`, ej. `51999...`).
 - Los precios están en soles (S/) como referencia de distribuidor — edítalos a gusto.
 
+## Imágenes
+
+Las fotos en `public/img/` son de [Pexels](https://www.pexels.com) (licencia
+gratuita para uso comercial). Reemplázalas por fotos reales de tus trabajos
+manteniendo los mismos nombres de archivo para no tocar el código.
+
 ## Deploy
 
 Desplegado en Vercel. Cada push a `main` genera un nuevo deploy automático.

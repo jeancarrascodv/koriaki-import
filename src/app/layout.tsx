@@ -38,6 +38,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_PE",
     siteName: "KORIAKI IMPORT",
+    images: [
+      {
+        url: "/img/raptor-sunset.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ford Raptor modernizado por KORIAKI IMPORT",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KORIAKI IMPORT — Conversiones & Accesorios 4x4",
+    description: "Conversiones Hilux/Raptor, faros LED, pisaderas y más. Precios de distribuidor en Lima.",
+    images: ["/img/raptor-sunset.jpg"],
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],

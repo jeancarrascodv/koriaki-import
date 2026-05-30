@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const perks = [
   "Importación directa: mejores precios para distribuidores y talleres",
   "Stock permanente en nuestro almacén de Ate, Lima",
@@ -38,10 +40,29 @@ export function About() {
           </ul>
         </div>
 
-        {/* Address card */}
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent p-8">
-          <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />
-          <h3 className="text-lg font-bold">Visítanos</h3>
+        <div className="space-y-5">
+          {/* Feature photo */}
+          <div className="relative overflow-hidden rounded-3xl">
+            <Image
+              src="/img/tacoma-forest.jpg"
+              alt="Camioneta Toyota 4x4 modernizada"
+              width={1100}
+              height={760}
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="h-64 w-full object-cover sm:h-80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+            <div className="absolute bottom-4 left-5 right-5">
+              <p className="text-sm font-semibold text-white">
+                Especialistas en 4x4 · Hilux & Raptor
+              </p>
+            </div>
+          </div>
+
+          {/* Address card */}
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent p-8">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />
+            <h3 className="text-lg font-bold">Visítanos</h3>
           <p className="mt-4 text-sm leading-relaxed text-white/70">
             <span className="text-white/45">Almacén</span>
             <br />
@@ -72,6 +93,7 @@ export function About() {
               <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
+          </div>
         </div>
       </div>
     </section>
