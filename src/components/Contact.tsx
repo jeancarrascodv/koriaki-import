@@ -8,10 +8,8 @@ export function Contact() {
       <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[700px] -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
 
       <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
-        <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-          Contacto
-        </p>
-        <h2 className="text-balance mx-auto mt-3 max-w-2xl text-3xl font-black tracking-tight sm:text-4xl">
+        <p className="eyebrow text-xs text-accent">Contacto</p>
+        <h2 className="font-display uppercase text-balance mx-auto mt-3 max-w-3xl text-4xl sm:text-6xl">
           ¿Listo para modernizar tu camioneta?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-white/65">

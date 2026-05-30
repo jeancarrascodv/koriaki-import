@@ -7,10 +7,8 @@ export function Gallery() {
       <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-              Galería
-            </p>
-            <h2 className="text-balance mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+            <p className="eyebrow text-xs text-accent">Galería</p>
+            <h2 className="font-display uppercase text-balance mt-3 text-4xl sm:text-5xl">
               Trabajos que hablan por sí solos
             </h2>
             <p className="mt-4 text-white/65">

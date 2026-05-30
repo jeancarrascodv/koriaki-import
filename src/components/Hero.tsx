@@ -26,7 +26,7 @@ export function Hero() {
           </div>
 
           <h1
-            className="reveal text-balance mt-6 text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+            className="reveal font-display uppercase text-balance mt-6 text-5xl leading-[0.95] sm:text-7xl lg:text-[5.5rem]"
             style={{ animationDelay: "60ms" }}
           >
             Modernizamos tu{" "}
@@ -53,7 +53,7 @@ export function Hero() {
           >
             <a
               href="#productos"
-              className="rounded-full bg-gradient-to-r from-accent to-accent-2 px-7 py-3.5 text-center text-sm font-bold text-black shadow-lg shadow-accent/25 transition-transform hover:scale-105"
+              className="rounded-full bg-gradient-to-r from-accent to-accent-2 px-7 py-3.5 text-center font-cond text-base font-bold uppercase tracking-wide text-black shadow-lg shadow-accent/25 transition-transform hover:scale-105"
             >
               Ver catálogo y precios
             </a>
@@ -77,7 +77,7 @@ export function Hero() {
               { k: "100%", v: "Stock en Lima" },
             ].map((s) => (
               <div key={s.v}>
-                <div className="text-2xl font-black text-accent sm:text-3xl">{s.k}</div>
+                <div className="font-display text-3xl text-accent sm:text-4xl">{s.k}</div>
                 <div className="mt-1 text-xs text-white/65 sm:text-sm">{s.v}</div>
               </div>
             ))}
@@ -85,12 +85,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll cue */}
-      <div className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 sm:block">
-        <div className="flex h-9 w-5 items-start justify-center rounded-full border border-white/25 p-1">
-          <span className="h-2 w-1 animate-bounce rounded-full bg-white/70" />
-        </div>
-      </div>
     </section>
   );
 }

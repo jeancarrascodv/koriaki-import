@@ -28,10 +28,8 @@ export function Services() {
     <section id="servicios" className="relative border-y border-white/10 bg-white/[0.02]">
       <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-            Servicios
-          </p>
-          <h2 className="text-balance mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+          <p className="eyebrow text-xs text-accent">Servicios</p>
+          <h2 className="font-display uppercase text-balance mt-3 text-4xl sm:text-5xl">
             Más que vender: modernizamos tu 4x4
           </h2>
           <p className="mt-4 text-white/65">

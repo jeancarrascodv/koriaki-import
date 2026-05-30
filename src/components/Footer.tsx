@@ -8,7 +8,7 @@ export function Footer() {
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-accent to-accent-2 font-black text-black">
             K
           </span>
-          <span className="text-sm font-extrabold tracking-tight">
+          <span className="font-display text-base uppercase tracking-wide">
             KORIAKI <span className="text-accent">IMPORT</span>
           </span>
         </div>

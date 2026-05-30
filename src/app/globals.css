@@ -1,19 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0b;
-  --foreground: #f4f4f5;
-  --accent: #ff5a1f;
-  --accent-2: #ffb020;
+  --background: #08080a;
+  --foreground: #f5f5f6;
+  --steel: #16171b;
+  --accent: #ff4d12;
+  --accent-2: #ffae00;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-steel: var(--steel);
   --color-accent: var(--accent);
   --color-accent-2: var(--accent-2);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-cond: var(--font-cond);
 }
 
 html {
@@ -23,8 +26,27 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, Arial, sans-serif;
+  font-family: var(--font-sans), system-ui, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Display headings — Anton, condensed & uppercase for automotive impact */
+.font-display {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.98;
+}
+
+.font-cond {
+  font-family: var(--font-cond), system-ui, sans-serif;
+}
+
+.eyebrow {
+  font-family: var(--font-cond), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 ::selection {

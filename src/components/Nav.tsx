@@ -30,12 +30,19 @@ export function Nav() {
           : "bg-transparent"
       }`}
     >
+      {!scrolled && (
+        <div className="hidden bg-gradient-to-r from-accent to-accent-2 text-center text-[12px] font-semibold text-black sm:block">
+          <div className="mx-auto max-w-7xl px-8 py-1.5">
+            🚚 Envíos a todo el Perú · Precios de distribuidor · Stock en Ate, Lima
+          </div>
+        </div>
+      )}
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8">
         <a href="#top" className="flex items-center gap-2.5 group">
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-accent to-accent-2 font-black text-black shadow-lg shadow-accent/20">
             K
           </span>
-          <span className="text-[15px] font-extrabold tracking-tight">
+          <span className="font-display text-lg uppercase tracking-wide">
             KORIAKI <span className="text-accent">IMPORT</span>
           </span>
         </a>

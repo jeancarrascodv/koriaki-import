@@ -20,10 +20,8 @@ export function Products() {
   return (
     <section id="productos" className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
       <div className="max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-          Catálogo
-        </p>
-        <h2 className="text-balance mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+        <p className="eyebrow text-xs text-accent">Catálogo</p>
+        <h2 className="font-display uppercase text-balance mt-3 text-4xl sm:text-5xl">
           Productos con precio de distribuidor
         </h2>
         <p className="mt-4 text-white/65">
@@ -64,7 +62,7 @@ export function Products() {
                     <Icon name={cat.icon} className="h-6 w-6" />
                   </span>
                   <div>
-                    <h3 className="text-xl font-black sm:text-2xl">{cat.title}</h3>
+                    <h3 className="font-display uppercase text-2xl sm:text-3xl">{cat.title}</h3>
                     <p className="mt-0.5 max-w-md text-sm text-white/70">{cat.subtitle}</p>
                   </div>
                 </div>
@@ -89,7 +87,7 @@ export function Products() {
                       <div className="text-[11px] uppercase tracking-wide text-white/45">
                         Distribuidor
                       </div>
-                      <div className="text-xl font-black text-accent-2">
+                      <div className="font-cond text-2xl font-bold text-accent-2">
                         {pen.format(p.price)}
                         {p.unit && (
                           <span className="ml-1 text-xs font-medium text-white/45">

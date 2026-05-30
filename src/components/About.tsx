@@ -12,10 +12,8 @@ export function About() {
     <section id="nosotros" className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-            Nosotros
-          </p>
-          <h2 className="text-balance mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+          <p className="eyebrow text-xs text-accent">Nosotros</p>
+          <h2 className="font-display uppercase text-balance mt-3 text-5xl sm:text-6xl">
             KORIAKI IMPORT
           </h2>
           <p className="mt-5 text-white/70">
