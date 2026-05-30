@@ -1,8 +1,8 @@
 export const site = {
   name: "KORIAKI IMPORT",
   tagline: "Conversiones & Modernización 4x4",
-  phone: "+51 999 999 999",
-  whatsapp: "51999999999", // editar: número real con código de país
+  phone: "+51 998 477 446",
+  whatsapp: "51998477446", // Perú (+51) 998 477 446
   email: "ventas@koriakiimport.com",
   address: "Separadora Industrial, Ate — Lima, Perú",
   hours: "Lun a Sáb · 9:00 a.m. – 6:00 p.m.",
