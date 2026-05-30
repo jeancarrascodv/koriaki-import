@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #08080a;
+  --background: #07080a;
   --foreground: #f5f5f6;
-  --steel: #16171b;
-  --accent: #ff4d12;
-  --accent-2: #ffae00;
+  --steel: #14161a;
+  --accent: #e11d2b; /* rojo motorsport — color del rubro 4x4 */
+  --accent-soft: #ff3a4d;
+  --accent-2: #22d3ee; /* cyan — acentos LED/tech */
 }
 
 @theme inline {
@@ -13,6 +14,7 @@
   --color-foreground: var(--foreground);
   --color-steel: var(--steel);
   --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
   --color-accent-2: var(--accent-2);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);

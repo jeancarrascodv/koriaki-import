@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { gallery, site } from "@/data/site";
+import { useLightbox } from "./Providers";
 
 export function Gallery() {
+  const { open } = useLightbox();
+  const slides = gallery.map((g) => ({ src: g.src, alt: g.alt }));
   return (
     <section id="galeria" className="relative border-y border-white/10 bg-white/[0.02]">
       <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
@@ -28,9 +33,10 @@ export function Gallery() {
 
         <div className="mt-10 grid auto-rows-[200px] grid-cols-2 gap-3 sm:grid-cols-4 sm:auto-rows-[230px]">
           {gallery.map((g, i) => (
-            <div
+            <button
               key={g.src}
-              className={`group relative overflow-hidden rounded-2xl ${
+              onClick={() => open(slides, i)}
+              className={`group relative block overflow-hidden rounded-2xl text-left ${
                 g.span ? "col-span-2 row-span-2" : ""
               }`}
             >
@@ -46,11 +52,11 @@ export function Gallery() {
                 {g.alt}
               </span>
               {i === 0 && (
-                <span className="absolute left-4 top-4 rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase text-black">
+                <span className="absolute left-4 top-4 rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase text-white">
                   Destacado
                 </span>
               )}
-            </div>
+            </button>
           ))}
         </div>
       </div>

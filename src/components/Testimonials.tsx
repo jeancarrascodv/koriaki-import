@@ -20,7 +20,7 @@ function Stars({ n = 5 }: { n?: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: n }).map((_, i) => (
-        <svg key={i} viewBox="0 0 24 24" className="h-4 w-4 text-accent-2" fill="currentColor">
+        <svg key={i} viewBox="0 0 24 24" className="h-4 w-4 text-amber-400" fill="currentColor">
           <path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" />
         </svg>
       ))}
@@ -39,7 +39,7 @@ export function Testimonials() {
           </h2>
         </div>
         <div className="flex items-center gap-3 rounded-2xl border border-white/12 bg-steel/60 px-5 py-3">
-          <div className="font-display text-4xl text-accent-2">4.9</div>
+          <div className="font-display text-4xl text-amber-400">4.9</div>
           <div>
             <Stars />
             <div className="mt-1 text-xs text-white/55">+180 reseñas verificadas</div>
@@ -58,7 +58,7 @@ export function Testimonials() {
               “{r.text}”
             </blockquote>
             <figcaption className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-accent to-accent-2 font-display text-black">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-accent to-accent-soft font-display text-black">
                 {r.name.charAt(0)}
               </span>
               <div>

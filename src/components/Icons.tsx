@@ -1,44 +1,29 @@
-type IconKey = "convert" | "headlight" | "taillight" | "step" | "rain" | "led";
+import {
+  RefreshCw,
+  Lightbulb,
+  Disc3,
+  Footprints,
+  CloudRain,
+  Zap,
+  Flashlight,
+  CircleDashed,
+  Shield,
+  LayoutGrid,
+  type LucideIcon,
+} from "lucide-react";
+import type { IconKey } from "@/data/site";
 
-const paths: Record<IconKey, React.ReactNode> = {
-  convert: (
-    <>
-      <path d="M4 17h16M6 17l1.5-5A3 3 0 0 1 10.4 10h3.2a3 3 0 0 1 2.9 2l1.5 5" />
-      <circle cx="7.5" cy="17.5" r="1.8" />
-      <circle cx="16.5" cy="17.5" r="1.8" />
-      <path d="M3 9l3-3M21 9l-3-3" />
-    </>
-  ),
-  headlight: (
-    <>
-      <path d="M4 7c5-2 11-2 16 0v10c-5 2-11 2-16 0Z" />
-      <path d="M8 10h7M8 13h5" />
-    </>
-  ),
-  taillight: (
-    <>
-      <rect x="4" y="6" width="16" height="12" rx="2" />
-      <path d="M8 6v12M14 9h3M14 12h3M14 15h3" />
-    </>
-  ),
-  step: (
-    <>
-      <path d="M3 16h14l3-3M3 16v2M6 16v-3h6" />
-      <path d="M9 13v-3h6" />
-    </>
-  ),
-  rain: (
-    <>
-      <path d="M4 7h16l-2 5H6Z" />
-      <path d="M8 16v3M12 16v3M16 16v3" />
-    </>
-  ),
-  led: (
-    <>
-      <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4" />
-      <circle cx="12" cy="12" r="4" />
-    </>
-  ),
+const map: Record<IconKey, LucideIcon> = {
+  convert: RefreshCw,
+  headlight: Lightbulb,
+  taillight: Disc3,
+  step: Footprints,
+  rain: CloudRain,
+  led: Zap,
+  bar: Flashlight,
+  wheel: CircleDashed,
+  bull: Shield,
+  rack: LayoutGrid,
 };
 
 export function Icon({
@@ -48,20 +33,8 @@ export function Icon({
   name: IconKey;
   className?: string;
 }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.6}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      {paths[name]}
-    </svg>
-  );
+  const Cmp = map[name] ?? Zap;
+  return <Cmp className={className} strokeWidth={1.8} aria-hidden="true" />;
 }
 
 export function WhatsAppIcon({ className = "" }: { className?: string }) {

@@ -63,9 +63,6 @@ export const metadata: Metadata = {
     description: "Conversiones Hilux/Raptor, faros LED, pisaderas y más. Precios de distribuidor en Lima.",
     images: ["/img/raptor-sunset.jpg"],
   },
-  icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-  },
 };
 
 export default function RootLayout({

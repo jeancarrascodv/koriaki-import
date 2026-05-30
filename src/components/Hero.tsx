@@ -30,7 +30,7 @@ export function Hero() {
             style={{ animationDelay: "60ms" }}
           >
             Modernizamos tu{" "}
-            <span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
               Toyota Hilux
             </span>{" "}
             y{" "}
@@ -53,7 +53,7 @@ export function Hero() {
           >
             <a
               href="#productos"
-              className="rounded-full bg-gradient-to-r from-accent to-accent-2 px-7 py-3.5 text-center font-cond text-base font-bold uppercase tracking-wide text-black shadow-lg shadow-accent/25 transition-transform hover:scale-105"
+              className="rounded-full bg-gradient-to-r from-accent to-accent-soft px-7 py-3.5 text-center font-cond text-base font-bold uppercase tracking-wide text-black shadow-lg shadow-accent/25 transition-transform hover:scale-105"
             >
               Ver catálogo y precios
             </a>

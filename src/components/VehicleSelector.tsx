@@ -1,22 +1,32 @@
 "use client";
 
 import { useState } from "react";
-import { site } from "@/data/site";
+import { ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "./Icons";
+import { useFilter } from "./Providers";
+import { site, needToCategory, type Fit } from "@/data/site";
 
-const models = ["Toyota Hilux", "Ford Raptor", "Ford Ranger", "Otro"];
-const years = Array.from({ length: 11 }, (_, i) => `${2025 - i}`);
-const needs = [
-  "Conversión",
-  "Faros LED",
-  "Faros posteriores",
-  "Pisaderas",
-  "Cubrelluvias",
+const models: { label: string; fit: Fit | null }[] = [
+  { label: "Toyota Hilux", fit: "Hilux" },
+  { label: "Ford Raptor", fit: "Raptor" },
+  { label: "Ford Ranger", fit: "Ranger" },
+  { label: "Otro / No estoy seguro", fit: null },
 ];
+const years = Array.from({ length: 11 }, (_, i) => `${2025 - i}`);
+const needs = Object.keys(needToCategory);
 
 export function VehicleSelector() {
-  const [model, setModel] = useState(models[0]);
+  const { setFilter } = useFilter();
+  const [model, setModel] = useState(models[0].label);
   const [year, setYear] = useState(years[2]);
   const [need, setNeed] = useState(needs[0]);
+
+  const fit = models.find((m) => m.label === model)?.fit ?? null;
+
+  const verProductos = () => {
+    setFilter({ category: needToCategory[need], model: fit });
+    document.getElementById("productos")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const msg = encodeURIComponent(
     `Hola KORIAKI IMPORT 👋 Tengo un *${model}* (${year}) y me interesa: *${need}*. ¿Me pasan precio de distribuidor y stock?`
@@ -27,7 +37,7 @@ export function VehicleSelector() {
     <section className="relative z-20 mx-auto -mt-16 max-w-5xl px-5 sm:px-8">
       <div className="overflow-hidden rounded-3xl border border-white/12 bg-steel/90 p-6 shadow-2xl shadow-black/50 backdrop-blur sm:p-8">
         <div className="flex items-center gap-2">
-          <span className="eyebrow text-[11px] text-accent">Cotiza en 10 segundos</span>
+          <span className="eyebrow text-[11px] text-accent">Encuentra tu producto</span>
           <span className="h-px flex-1 bg-white/10" />
         </div>
         <h2 className="font-display uppercase mt-2 text-2xl sm:text-3xl">
@@ -38,7 +48,7 @@ export function VehicleSelector() {
           <Field label="Modelo">
             <select value={model} onChange={(e) => setModel(e.target.value)} className={selectCls}>
               {models.map((m) => (
-                <option key={m} className="bg-steel">{m}</option>
+                <option key={m.label} className="bg-steel">{m.label}</option>
               ))}
             </select>
           </Field>
@@ -58,16 +68,24 @@ export function VehicleSelector() {
           </Field>
         </div>
 
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-2 px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
-        >
-          Cotizar por WhatsApp →
-        </a>
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+          <button
+            onClick={verProductos}
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-soft px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-white transition-transform hover:scale-[1.02]"
+          >
+            Ver productos <ArrowRight className="h-5 w-5" />
+          </button>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
+          >
+            <WhatsAppIcon className="h-5 w-5" /> WhatsApp
+          </a>
+        </div>
         <p className="mt-3 text-center text-xs text-white/50">
-          Respuesta rápida en horario de atención · {site.hours}
+          Te llevamos directo al catálogo filtrado para tu vehículo · {site.hours}
         </p>
       </div>
     </section>
