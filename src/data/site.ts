@@ -147,21 +147,111 @@ export const categories: Category[] = [
   },
 ];
 
-// Producto plano con metadatos de categoría — usado por el Marketplace
+// Pool de imágenes por categoría — usado para armar la galería de cada ficha
+const categoryGallery: Record<string, string[]> = {
+  conversiones: ["/img/raptor-yellow.jpg", "/img/raptor-bridge.jpg", "/img/raptor-black.jpg", "/img/raptor-orange.jpg", "/img/raptor-sunset.jpg"],
+  "faros-led": ["/img/led-angel.jpg", "/img/led-glow.jpg", "/img/led-projector.jpg", "/img/led-black.jpg"],
+  "faros-posteriores": ["/img/taillight.jpg", "/img/taillight2.jpg", "/img/taillight-glow.jpg", "/img/taillight-y.jpg", "/img/taillight-suv.jpg"],
+  "barras-led": ["/img/lightbar.jpg", "/img/offroad-lightbar.jpg", "/img/led-black.jpg", "/img/hero-night.jpg", "/img/overland.jpg"],
+  aros: ["/img/wheels.jpg", "/img/wheels2.jpg", "/img/wheel-detail1.jpg", "/img/wheel-detail2.jpg", "/img/wheel-detail3.jpg"],
+  defensas: ["/img/bullbar.jpg", "/img/trx-rear.jpg", "/img/raptor-black.jpg", "/img/offroad-lightbar.jpg", "/img/raptor-orange.jpg"],
+  canastillas: ["/img/overland.jpg", "/img/overland-amarok.jpg", "/img/rooftop-tent.jpg", "/img/tacoma-forest.jpg"],
+  pisaderas: ["/img/raptor-black.jpg", "/img/raptor-sunset.jpg", "/img/raptor-bridge.jpg", "/img/wheels.jpg"],
+  cubrelluvias: ["/img/raptor-orange.jpg", "/img/raptor-bridge.jpg", "/img/raptor-sunset.jpg"],
+};
+
+function buildGallery(categoryId: string, main: string): string[] {
+  const pool = categoryGallery[categoryId] ?? [];
+  return Array.from(new Set([main, ...pool])).slice(0, 6);
+}
+
+// Producto plano con metadatos de categoría — usado por el Marketplace y las fichas
 export type FlatProduct = Product & {
   id: string;
+  slug: string;
   categoryId: string;
   categoryTitle: string;
+  gallery: string[];
 };
 
 export const allProducts: FlatProduct[] = categories.flatMap((c) =>
   c.products.map((p, i) => ({
     ...p,
     id: `${c.id}-${i}`,
+    slug: `${c.id}-${i}`,
     categoryId: c.id,
     categoryTitle: c.title,
+    gallery: buildGallery(c.id, p.image),
   }))
 );
+
+export function getProduct(id: string): FlatProduct | undefined {
+  return allProducts.find((p) => p.id === id);
+}
+
+export function relatedProducts(p: FlatProduct, n = 4): FlatProduct[] {
+  const same = allProducts.filter((x) => x.categoryId === p.categoryId && x.id !== p.id);
+  const others = allProducts.filter((x) => x.categoryId !== p.categoryId && x.id !== p.id);
+  return [...same, ...others].slice(0, n);
+}
+
+// Especificaciones genéricas por categoría para la ficha de producto
+export const categorySpecs: Record<string, { label: string; value: string }[]> = {
+  conversiones: [
+    { label: "Material", value: "ABS / PP automotriz" },
+    { label: "Incluye", value: "Parrilla, bumper, emblemas" },
+    { label: "Instalación", value: "Profesional (disponible)" },
+    { label: "Garantía", value: "6 meses" },
+  ],
+  "faros-led": [
+    { label: "Tecnología", value: "Full LED + DRL secuencial" },
+    { label: "Conexión", value: "Plug & Play" },
+    { label: "Temperatura", value: "6000K blanco frío" },
+    { label: "Garantía", value: "12 meses" },
+  ],
+  "faros-posteriores": [
+    { label: "Tecnología", value: "LED dinámico secuencial" },
+    { label: "Acabado", value: "Humo / rojo" },
+    { label: "Conexión", value: "Plug & Play" },
+    { label: "Garantía", value: "12 meses" },
+  ],
+  "barras-led": [
+    { label: "Potencia", value: "120W combo spot/flood" },
+    { label: "Protección", value: "IP68 sumergible" },
+    { label: "Carcasa", value: "Aluminio aeronáutico" },
+    { label: "Incluye", value: "Arnés + relé + switch" },
+  ],
+  aros: [
+    { label: "Material", value: "Aleación reforzada" },
+    { label: "Patrón", value: "6x139.7" },
+    { label: "Diámetros", value: '17\" / 18\"' },
+    { label: "Garantía", value: "Estructural" },
+  ],
+  defensas: [
+    { label: "Material", value: "Acero al carbono" },
+    { label: "Pintura", value: "Electrostática anticorrosiva" },
+    { label: "Soporta", value: "Winch / cabrestante" },
+    { label: "Incluye", value: "Ganchos de rescate" },
+  ],
+  canastillas: [
+    { label: "Material", value: "Aluminio modular" },
+    { label: "Sistema", value: "Rieles en T" },
+    { label: "Carga", value: "Hasta 150 kg dinámica" },
+    { label: "Garantía", value: "12 meses" },
+  ],
+  pisaderas: [
+    { label: "Material", value: "Aluminio / acero" },
+    { label: "Superficie", value: "Antideslizante" },
+    { label: "Instalación", value: "Con soportes incluidos" },
+    { label: "Garantía", value: "6 meses" },
+  ],
+  cubrelluvias: [
+    { label: "Material", value: "Acrílico ahumado" },
+    { label: "Fijación", value: "Cinta 3M (sin perforar)" },
+    { label: "Cobertura", value: "4 puertas" },
+    { label: "Garantía", value: "6 meses" },
+  ],
+};
 
 // Mapa de "¿qué buscas?" (selector) -> id de categoría
 export const needToCategory: Record<string, string> = {

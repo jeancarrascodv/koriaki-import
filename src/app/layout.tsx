@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Anton, Oswald } from "next/font/google";
+import { Inter, Anton, Oswald, Cinzel } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,6 +17,13 @@ const anton = Anton({
 
 const oswald = Oswald({
   variable: "--font-cond",
+  weight: ["500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const cinzel = Cinzel({
+  variable: "--font-serif",
   weight: ["500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
@@ -73,7 +80,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${inter.variable} ${anton.variable} ${oswald.variable} h-full antialiased`}
+      className={`${inter.variable} ${anton.variable} ${oswald.variable} ${cinzel.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

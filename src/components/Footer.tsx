@@ -1,18 +1,11 @@
-import { Truck } from "lucide-react";
+import { Logo } from "./Logo";
 import { site } from "@/data/site";
 
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-background">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 py-10 sm:flex-row sm:px-8">
-        <div className="flex items-center gap-2.5">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-accent to-accent-soft text-black">
-            <Truck className="h-4 w-4" strokeWidth={2.4} />
-          </span>
-          <span className="font-display text-base uppercase tracking-wide">
-            KORIAKI <span className="text-accent">IMPORT</span>
-          </span>
-        </div>
+        <Logo size="sm" />
 
         <p className="text-center text-xs text-white/45">
           Conversiones · Faros LED · Accesorios 4x4 — Hilux & Raptor · Ate, Lima

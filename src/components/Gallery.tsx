@@ -52,7 +52,7 @@ export function Gallery() {
                 {g.alt}
               </span>
               {i === 0 && (
-                <span className="absolute left-4 top-4 rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase text-white">
+                <span className="absolute left-4 top-4 rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase text-black">
                   Destacado
                 </span>
               )}

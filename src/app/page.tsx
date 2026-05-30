@@ -41,7 +41,7 @@ export default function Home() {
               </div>
               <a
                 href="/tienda"
-                className="shrink-0 rounded-full bg-gradient-to-r from-accent to-accent-soft px-8 py-4 font-cond text-base font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
+                className="shrink-0 rounded-full bg-gradient-to-r from-accent to-accent-soft px-8 py-4 font-cond text-base font-bold uppercase tracking-wide text-black transition-transform hover:scale-105"
               >
                 Ir a la tienda →
               </a>

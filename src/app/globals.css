@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07080a;
-  --foreground: #f5f5f6;
-  --steel: #14161a;
-  --accent: #e11d2b; /* rojo motorsport — color del rubro 4x4 */
-  --accent-soft: #ff3a4d;
-  --accent-2: #22d3ee; /* cyan — acentos LED/tech */
+  --background: #0a0a0a;
+  --foreground: #f3f1ea;
+  --steel: #16150f;
+  --accent: #c8a24a; /* dorado de marca KORIAKI */
+  --accent-soft: #e3c270;
+  --accent-2: #e6c976; /* dorado claro — precios y acentos */
 }
 
 @theme inline {
@@ -19,6 +19,7 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   --font-cond: var(--font-cond);
+  --font-serif: var(--font-serif);
 }
 
 html {

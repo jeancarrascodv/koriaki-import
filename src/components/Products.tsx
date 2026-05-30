@@ -160,7 +160,7 @@ function CategoryBlock({
               />
               <span className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               {p.tag && (
-                <span className="absolute left-3 top-3 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                <span className="absolute left-3 top-3 rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-black">
                   {p.tag}
                 </span>
               )}
@@ -190,7 +190,7 @@ function CategoryBlock({
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/15 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-white"
+                  className="rounded-full border border-white/15 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-black"
                 >
                   Cotizar
                 </a>
@@ -228,7 +228,7 @@ function FilterBtn({
       onClick={onClick}
       className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
         active
-          ? "bg-accent text-white"
+          ? "bg-accent text-black"
           : "border border-white/15 text-white/70 hover:bg-white/5"
       }`}
     >

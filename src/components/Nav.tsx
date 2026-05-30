@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Truck } from "lucide-react";
+import { Logo } from "./Logo";
 import { site } from "@/data/site";
 
 const links = [
@@ -39,13 +39,8 @@ export function Nav() {
         </div>
       )}
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5 group">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-accent to-accent-soft text-black shadow-lg shadow-accent/20">
-            <Truck className="h-5 w-5" strokeWidth={2.4} />
-          </span>
-          <span className="font-display text-lg uppercase tracking-wide">
-            KORIAKI <span className="text-accent">IMPORT</span>
-          </span>
+        <a href="#top" className="group">
+          <Logo size="sm" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

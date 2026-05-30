@@ -71,7 +71,7 @@ export function VehicleSelector() {
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <button
             onClick={verProductos}
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-soft px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-white transition-transform hover:scale-[1.02]"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-soft px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
           >
             Ver productos <ArrowRight className="h-5 w-5" />
           </button>
