@@ -50,9 +50,9 @@ export const categories: Category[] = [
     icon: "convert",
     image: "/img/raptor-yellow.jpg",
     products: [
-      { name: "Kit Conversión Hilux → Raptor", desc: "Parrilla, parachoques, guardafangos y emblemas. Look Ford Raptor completo.", price: 4200, tag: "TOP", image: "/img/raptor-bridge.jpg", fits: ["Hilux"] },
-      { name: "Kit Conversión Hilux GR Sport", desc: "Estética deportiva GR: parrilla, bumper y detalles negros.", price: 3500, image: "/img/raptor-black.jpg", fits: ["Hilux"] },
-      { name: "Kit Carrocería Raptor (restyling)", desc: "Renovación frontal y posterior para Ford Raptor modelos previos.", price: 3900, image: "/img/raptor-orange.jpg", fits: ["Raptor"] },
+      { name: "Kit Conversión Hilux → Raptor", desc: "Parrilla, parachoques, guardafangos y emblemas. Look Raptor completo.", price: 4200, tag: "TOP", image: "/img/raptor-bridge.jpg", fits: ["Hilux"] },
+      { name: "Kit Conversión Hilux Deportivo", desc: "Estética deportiva: parrilla, bumper y detalles negros.", price: 3500, image: "/img/raptor-black.jpg", fits: ["Hilux"] },
+      { name: "Kit Carrocería Raptor (restyling)", desc: "Renovación frontal y posterior para Raptor modelos previos.", price: 3900, image: "/img/raptor-orange.jpg", fits: ["Raptor"] },
     ],
   },
   {
@@ -63,7 +63,7 @@ export const categories: Category[] = [
     image: "/img/led-angel.jpg",
     products: [
       { name: "Faros LED Hilux 2016–2023", desc: "Proyector full LED, luz diurna secuencial y direccional dinámico.", price: 1450, unit: "par", tag: "MÁS VENDIDO", image: "/img/led-angel.jpg", fits: ["Hilux"] },
-      { name: "Faros LED Ford Raptor", desc: "Diseño OEM+ con barra DRL y guías de luz.", price: 1680, unit: "par", image: "/img/led-glow.jpg", fits: ["Raptor"] },
+      { name: "Faros LED Raptor", desc: "Diseño OEM+ con barra DRL y guías de luz.", price: 1680, unit: "par", image: "/img/led-glow.jpg", fits: ["Raptor"] },
       { name: "Faros LED Hilux estilo Raptor", desc: "Conjunto para conversión, plug & play.", price: 1390, unit: "par", image: "/img/led-projector.jpg", fits: ["Hilux"] },
     ],
   },
@@ -74,8 +74,8 @@ export const categories: Category[] = [
     icon: "taillight",
     image: "/img/taillight.jpg",
     products: [
-      { name: "Faros Posteriores LED Hilux", desc: "Humo / rojo, intermitente secuencial estilo Mustang.", price: 980, unit: "par", image: "/img/taillight.jpg", fits: ["Hilux"] },
-      { name: "Faros Posteriores Ford Raptor", desc: "Full LED con efecto dinámico y reversa integrada.", price: 1120, unit: "par", image: "/img/taillight2.jpg", fits: ["Raptor"] },
+      { name: "Faros Posteriores LED Hilux", desc: "Humo / rojo, intermitente secuencial dinámico.", price: 980, unit: "par", image: "/img/taillight.jpg", fits: ["Hilux"] },
+      { name: "Faros Posteriores Raptor", desc: "Full LED con efecto dinámico y reversa integrada.", price: 1120, unit: "par", image: "/img/taillight2.jpg", fits: ["Raptor"] },
     ],
   },
   {
@@ -142,7 +142,7 @@ export const categories: Category[] = [
     image: "/img/raptor-orange.jpg",
     products: [
       { name: "Cubrelluvias Hilux (4 puertas)", desc: "Acrílico ahumado con cinta 3M, instalación sin perforar.", price: 180, unit: "juego", image: "/img/raptor-orange.jpg", fits: ["Hilux"] },
-      { name: "Cubrelluvias Ford Raptor", desc: "Set completo ahumado, ajuste exacto.", price: 200, unit: "juego", image: "/img/raptor-bridge.jpg", fits: ["Raptor"] },
+      { name: "Cubrelluvias Raptor", desc: "Set completo ahumado, ajuste exacto.", price: 200, unit: "juego", image: "/img/raptor-bridge.jpg", fits: ["Raptor"] },
     ],
   },
 ];
@@ -267,10 +267,10 @@ export const needToCategory: Record<string, string> = {
 };
 
 export const gallery: { src: string; alt: string; span?: boolean }[] = [
-  { src: "/img/raptor-sunset.jpg", alt: "Ford Raptor al atardecer", span: true },
-  { src: "/img/overland.jpg", alt: "Toyota 4x4 overland con roof rack y barra LED" },
+  { src: "/img/raptor-sunset.jpg", alt: "Raptor al atardecer", span: true },
+  { src: "/img/overland.jpg", alt: "camioneta 4x4 overland con roof rack y barra LED" },
   { src: "/img/offroad-lightbar.jpg", alt: "4x4 con barra LED y defensa en la noche" },
-  { src: "/img/raptor-bridge.jpg", alt: "Ford Raptor negro modernizado" },
+  { src: "/img/raptor-bridge.jpg", alt: "Raptor negro modernizado" },
   { src: "/img/wheels.jpg", alt: "Aros off-road con neumático todoterreno" },
   { src: "/img/bullbar.jpg", alt: "Defensa frontal con ganchos de rescate" },
   { src: "/img/led-angel.jpg", alt: "Faros LED con luz diurna" },

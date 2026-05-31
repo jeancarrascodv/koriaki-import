@@ -18,8 +18,8 @@ export function About() {
           </h2>
           <p className="mt-5 text-white/70">
             Somos importadores y distribuidores especializados en la
-            modernización de camionetas <strong>Toyota Hilux</strong> y{" "}
-            <strong>Ford Raptor</strong>. Trabajamos con talleres, distribuidores
+            modernización de camionetas <strong>Hilux</strong> y{" "}
+            <strong>Raptor</strong>. Trabajamos con talleres, distribuidores
             y clientes finales en todo el Perú, ofreciendo conversiones, faros LED
             y accesorios de alta calidad a precio de importación.
           </p>
@@ -43,7 +43,7 @@ export function About() {
           <div className="relative overflow-hidden rounded-3xl">
             <Image
               src="/img/tacoma-forest.jpg"
-              alt="Camioneta Toyota 4x4 modernizada"
+              alt="Camioneta 4x4 modernizada"
               width={1100}
               height={760}
               sizes="(max-width: 1024px) 100vw, 560px"

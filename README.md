@@ -1,8 +1,8 @@
 # KORIAKI IMPORT — Landing Page
 
 Landing page para **KORIAKI IMPORT**: importación y venta de conversiones,
-faros LED, faros posteriores, pisaderas y cubrelluvias para **Toyota Hilux** y
-**Ford Raptor**. Modernización de vehículos 4x4. Almacén en Separadora
+faros LED, faros posteriores, pisaderas y cubrelluvias para **Hilux** y
+**Raptor**. Modernización de vehículos 4x4. Almacén en Separadora
 Industrial, Ate — Lima, Perú.
 
 ## Stack

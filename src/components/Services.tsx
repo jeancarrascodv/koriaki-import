@@ -4,7 +4,7 @@ const services = [
   {
     icon: "convert" as const,
     title: "Conversión de carrocería",
-    desc: "Transformamos tu Hilux al look Ford Raptor o GR Sport con kits completos e instalación profesional.",
+    desc: "Transformamos tu Hilux al look Raptor o deportivo con kits completos e instalación profesional.",
   },
   {
     icon: "led" as const,
@@ -33,7 +33,7 @@ export function Services() {
             Más que vender: modernizamos tu 4x4
           </h2>
           <p className="mt-4 text-white/65">
-            Especialistas en Toyota Hilux y Ford Raptor. Importamos, instalamos y
+            Especialistas en Hilux y Raptor. Importamos, instalamos y
             damos garantía.
           </p>
         </div>

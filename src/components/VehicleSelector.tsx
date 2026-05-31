@@ -7,9 +7,9 @@ import { useFilter } from "./Providers";
 import { site, needToCategory, type Fit } from "@/data/site";
 
 const models: { label: string; fit: Fit | null }[] = [
-  { label: "Toyota Hilux", fit: "Hilux" },
-  { label: "Ford Raptor", fit: "Raptor" },
-  { label: "Ford Ranger", fit: "Ranger" },
+  { label: "Hilux", fit: "Hilux" },
+  { label: "Raptor", fit: "Raptor" },
+  { label: "Ranger", fit: "Ranger" },
   { label: "Otro / No estoy seguro", fit: null },
 ];
 const years = Array.from({ length: 11 }, (_, i) => `${2025 - i}`);

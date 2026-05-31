@@ -31,11 +31,11 @@ export function Hero() {
           >
             Modernizamos tu{" "}
             <span className="bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
-              Toyota Hilux
+              Hilux
             </span>{" "}
             y{" "}
             <span className="bg-gradient-to-r from-accent-2 to-accent bg-clip-text text-transparent">
-              Ford Raptor
+              Raptor
             </span>
           </h1>
 

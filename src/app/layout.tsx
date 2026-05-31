@@ -32,16 +32,16 @@ const cinzel = Cinzel({
 export const metadata: Metadata = {
   metadataBase: new URL("https://koriaki-import.vercel.app"),
   title: {
-    default: "KORIAKI IMPORT — Conversiones Toyota Hilux & Ford Raptor | Lima",
+    default: "KORIAKI IMPORT — Conversiones Hilux & Raptor | Lima",
     template: "%s | KORIAKI IMPORT",
   },
   description:
-    "Conversiones, faros LED, faros posteriores, pisaderas y cubrelluvias para Toyota Hilux y Ford Raptor. Modernización de vehículos 4x4. Almacén en Separadora Industrial, Ate, Lima. Precios de distribuidor.",
+    "Conversiones, faros LED, faros posteriores, pisaderas y cubrelluvias para Hilux y Raptor. Modernización de vehículos 4x4. Almacén en Separadora Industrial, Ate, Lima. Precios de distribuidor.",
   keywords: [
     "conversiones Hilux",
-    "Ford Raptor Perú",
+    "Raptor Perú",
     "faros LED Hilux",
-    "pisaderas Toyota",
+    "pisaderas pickup",
     "cubrelluvias",
     "modernización 4x4",
     "accesorios Hilux Lima",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KORIAKI IMPORT — Conversiones & Accesorios 4x4",
     description:
-      "Conversiones Toyota Hilux a Ford Raptor, faros LED, pisaderas y más. Precios de distribuidor en Lima.",
+      "Conversiones Hilux a Raptor, faros LED, pisaderas y más. Precios de distribuidor en Lima.",
     type: "website",
     locale: "es_PE",
     siteName: "KORIAKI IMPORT",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         url: "/img/raptor-sunset.jpg",
         width: 1200,
         height: 630,
-        alt: "Ford Raptor modernizado por KORIAKI IMPORT",
+        alt: "Raptor modernizado por KORIAKI IMPORT",
       },
     ],
   },
