@@ -5,7 +5,7 @@ export const site = {
   whatsapp: "51998477446", // Perú (+51) 998 477 446
   email: "ventas@koriakiimport.com",
   address: "Separadora Industrial, Ate — Lima, Perú",
-  hours: "Lun a Sáb · 9:00 a.m. – 6:00 p.m.",
+  hours: "Mon to Sat · 9:00 a.m. – 6:00 p.m.",
   instagram: "https://instagram.com/koriakiimport",
 };
 
