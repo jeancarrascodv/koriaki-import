@@ -8,19 +8,19 @@ export function Contact() {
       <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[700px] -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
 
       <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
-        <p className="eyebrow text-xs text-accent">Contact</p>
+        <p className="eyebrow text-xs text-accent">Contacto</p>
         <h2 className="font-display uppercase text-balance mx-auto mt-3 max-w-3xl text-4xl sm:text-6xl">
-          Ready to upgrade your truck?
+          ¿Listo para modernizar tu camioneta?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-white/65">
-          Message us to get the latest dealer price list and current stock
-          availability.
+          Escríbenos para recibir la lista de precios de distribuidor y conocer
+          la disponibilidad actual.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
-              "Hi KORIAKI IMPORT, I'd like the dealer price list"
+              "Hola KORIAKI IMPORT, quiero la lista de precios de distribuidor"
             )}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -39,9 +39,9 @@ export function Contact() {
 
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {[
-            { label: "Phone", value: site.phone },
-            { label: "Warehouse", value: "Separadora Industrial, Ate" },
-            { label: "Hours", value: site.hours },
+            { label: "Teléfono", value: site.phone },
+            { label: "Almacén", value: "Separadora Industrial, Ate" },
+            { label: "Horario", value: site.hours },
           ].map((c) => (
             <div
               key={c.label}

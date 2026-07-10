@@ -4,17 +4,17 @@ const services = [
   {
     icon: "convert" as const,
     title: "Conversión de carrocería",
-    desc: "Transformamos tu Hilux al look Raptor o deportivo con kits completos e instalación profesional.",
+    desc: "Transformamos tu Hilux al estilo Raptor o deportivo con juegos completos e instalación profesional.",
   },
   {
     icon: "led" as const,
     title: "Modernización LED",
-    desc: "Upgrade de iluminación delantera y posterior: faros full LED con luz diurna y secuencial.",
+    desc: "Mejora de iluminación delantera y posterior: faros LED completos con luz diurna y secuencial.",
   },
   {
     icon: "headlight" as const,
     title: "Instalación & asesoría",
-    desc: "Montaje plug & play de faros, pisaderas y accesorios. Garantía y soporte post-venta.",
+    desc: "Montaje directo de faros, pisaderas y accesorios. Garantía y soporte posventa.",
   },
   {
     icon: "step" as const,

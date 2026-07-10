@@ -4,13 +4,14 @@ const sizes = {
   sm: { w: 120, h: 40 },
   md: { w: 150, h: 50 },
   lg: { w: 190, h: 63 },
+  xl: { w: 240, h: 80 },
 };
 
 export function Logo({
   size = "md",
   className = "",
 }: {
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
 }) {
   const { w, h } = sizes[size];

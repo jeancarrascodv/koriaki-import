@@ -7,7 +7,7 @@ const reviews = [
   {
     name: "Luis R.",
     car: "Faros LED Hilux",
-    text: "Los faros LED con secuencial son otro nivel. Plug & play, llegaron rápido a provincia y la asesoría fue puntual.",
+    text: "Los faros LED con secuencial son otro nivel. Instalación directa, llegaron rápido a provincia y la asesoría fue puntual.",
   },
   {
     name: "Andrea P.",

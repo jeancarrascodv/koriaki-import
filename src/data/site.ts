@@ -1,11 +1,11 @@
 export const site = {
   name: "KORIAKI IMPORT",
-  tagline: "Conversiones & Modernización 4x4",
+  tagline: "Conversiones y modernización 4x4",
   phone: "+51 998 477 446",
   whatsapp: "51998477446", // Perú (+51) 998 477 446
   email: "koriakioperaciones@gmail.com",
   address: "Separadora Industrial, Ate — Lima, Perú",
-  hours: "Mon to Sat · 9:00 a.m. – 6:00 p.m.",
+  hours: "Lun. a sáb. · 9:00 a. m. – 6:00 p. m.",
   instagram: "https://instagram.com/koriakiimport",
 };
 
@@ -50,9 +50,9 @@ export const categories: Category[] = [
     icon: "convert",
     image: "/img/raptor-yellow.jpg",
     products: [
-      { name: "Kit Conversión Hilux → Raptor", desc: "Parrilla, parachoques, guardafangos y emblemas. Look Raptor completo.", price: 4200, tag: "TOP", image: "/img/raptor-bridge.jpg", fits: ["Hilux"] },
-      { name: "Kit Conversión Hilux Deportivo", desc: "Estética deportiva: parrilla, bumper y detalles negros.", price: 3500, image: "/img/raptor-black.jpg", fits: ["Hilux"] },
-      { name: "Kit Carrocería Raptor (restyling)", desc: "Renovación frontal y posterior para Raptor modelos previos.", price: 3900, image: "/img/raptor-orange.jpg", fits: ["Raptor"] },
+      { name: "Kit Conversión Hilux → Raptor", desc: "Parrilla, parachoques, guardafangos y emblemas. Estilo Raptor completo.", price: 4200, tag: "DESTACADO", image: "/img/raptor-bridge.jpg", fits: ["Hilux"] },
+      { name: "Kit Conversión Hilux Deportivo", desc: "Estética deportiva: parrilla, parachoques y detalles negros.", price: 3500, image: "/img/raptor-black.jpg", fits: ["Hilux"] },
+      { name: "Kit Carrocería Raptor (renovación)", desc: "Renovación frontal y posterior para Raptor de modelos previos.", price: 3900, image: "/img/raptor-orange.jpg", fits: ["Raptor"] },
     ],
   },
   {
@@ -62,9 +62,9 @@ export const categories: Category[] = [
     icon: "headlight",
     image: "/img/led-angel.jpg",
     products: [
-      { name: "Faros LED Hilux 2016–2023", desc: "Proyector full LED, luz diurna secuencial y direccional dinámico.", price: 1450, unit: "par", tag: "MÁS VENDIDO", image: "/img/led-angel.jpg", fits: ["Hilux"] },
+      { name: "Faros LED Hilux 2016–2023", desc: "Proyector LED completo, luz diurna secuencial y direccional dinámico.", price: 1450, unit: "par", tag: "MÁS VENDIDO", image: "/img/led-angel.jpg", fits: ["Hilux"] },
       { name: "Faros LED Raptor", desc: "Diseño OEM+ con barra DRL y guías de luz.", price: 1680, unit: "par", image: "/img/led-glow.jpg", fits: ["Raptor"] },
-      { name: "Faros LED Hilux estilo Raptor", desc: "Conjunto para conversión, plug & play.", price: 1390, unit: "par", image: "/img/led-projector.jpg", fits: ["Hilux"] },
+      { name: "Faros LED Hilux estilo Raptor", desc: "Conjunto para conversión, de instalación directa.", price: 1390, unit: "par", image: "/img/led-projector.jpg", fits: ["Hilux"] },
     ],
   },
   {
@@ -75,51 +75,51 @@ export const categories: Category[] = [
     image: "/img/taillight.jpg",
     products: [
       { name: "Faros Posteriores LED Hilux", desc: "Humo / rojo, intermitente secuencial dinámico.", price: 980, unit: "par", image: "/img/taillight.jpg", fits: ["Hilux"] },
-      { name: "Faros Posteriores Raptor", desc: "Full LED con efecto dinámico y reversa integrada.", price: 1120, unit: "par", image: "/img/taillight2.jpg", fits: ["Raptor"] },
+      { name: "Faros Posteriores Raptor", desc: "LED completo con efecto dinámico y reversa integrada.", price: 1120, unit: "par", image: "/img/taillight2.jpg", fits: ["Raptor"] },
     ],
   },
   {
     id: "barras-led",
     title: "Barras LED",
-    subtitle: "Light bars y faros auxiliares para off-road",
+    subtitle: "Barras de luz y faros auxiliares para todoterreno",
     icon: "bar",
     image: "/img/lightbar.jpg",
     products: [
-      { name: 'Barra LED Curva 22"', desc: "Combo spot/flood, 120W, carcasa de aluminio IP68.", price: 540, tag: "NUEVO", image: "/img/offroad-lightbar.jpg", fits: ["Universal"] },
+      { name: 'Barra LED Curva 22"', desc: "Haz concentrado y amplio, 120 W, carcasa de aluminio IP68.", price: 540, tag: "NUEVO", image: "/img/offroad-lightbar.jpg", fits: ["Universal"] },
       { name: "Barra LED Techo + soportes", desc: "Kit completo con arnés, relé y soportes a medida.", price: 690, image: "/img/lightbar.jpg", fits: ["Hilux", "Raptor"] },
-      { name: "Faros Auxiliares Cube (par)", desc: "Cubos LED 4\" para parrilla o parachoques. Spot.", price: 260, unit: "par", image: "/img/led-black.jpg", fits: ["Universal"] },
+      { name: "Faros Auxiliares Cubo (par)", desc: "Cubos LED de 4 pulgadas para parrilla o parachoques. Haz concentrado.", price: 260, unit: "par", image: "/img/led-black.jpg", fits: ["Universal"] },
     ],
   },
   {
     id: "aros",
-    title: "Aros & Rines",
-    subtitle: "Rines off-road reforzados, varios diámetros",
+    title: "Aros y rines",
+    subtitle: "Rines todoterreno reforzados, varios diámetros",
     icon: "wheel",
     image: "/img/wheels.jpg",
     products: [
-      { name: 'Aros Off-Road 17" Negro', desc: "Diseño beadlock-look, alta resistencia. Patrón 6x139.", price: 1280, unit: "juego", tag: "TOP", image: "/img/wheels.jpg", fits: ["Hilux", "Raptor", "Ranger"] },
-      { name: 'Aros 18" Maquinado', desc: "Acabado negro/maquinado para look premium.", price: 1520, unit: "juego", image: "/img/wheels2.jpg", fits: ["Hilux", "Raptor", "Ranger"] },
+      { name: 'Aros Todoterreno 17" Negros', desc: "Diseño con aro simulado, alta resistencia. Patrón 6x139.", price: 1280, unit: "juego", tag: "DESTACADO", image: "/img/wheels.jpg", fits: ["Hilux", "Raptor", "Ranger"] },
+      { name: 'Aros 18" Maquinados', desc: "Acabado negro y maquinado de alta gama.", price: 1520, unit: "juego", image: "/img/wheels2.jpg", fits: ["Hilux", "Raptor", "Ranger"] },
     ],
   },
   {
     id: "defensas",
-    title: "Defensas & Bull Bar",
-    subtitle: "Parachoques reforzados con winch y ganchos",
+    title: "Defensas y barras frontales",
+    subtitle: "Parachoques reforzados con cabrestante y ganchos",
     icon: "bull",
     image: "/img/bullbar.jpg",
     products: [
-      { name: "Defensa Delantera + soporte winch", desc: "Acero reforzado con ganchos de rescate y luces.", price: 1850, tag: "OFERTA", image: "/img/bullbar.jpg", fits: ["Hilux", "Raptor"] },
-      { name: "Bull Bar Tubular Negro", desc: "Protección frontal tubular, pintura electrostática.", price: 980, image: "/img/trx-rear.jpg", fits: ["Hilux", "Ranger"] },
+      { name: "Defensa Delantera + soporte para cabrestante", desc: "Acero reforzado con ganchos de rescate y luces.", price: 1850, tag: "OFERTA", image: "/img/bullbar.jpg", fits: ["Hilux", "Raptor"] },
+      { name: "Barra frontal tubular negra", desc: "Protección frontal tubular, pintura electrostática.", price: 980, image: "/img/trx-rear.jpg", fits: ["Hilux", "Ranger"] },
     ],
   },
   {
     id: "canastillas",
-    title: "Canastillas & Roof Rack",
-    subtitle: "Parrillas de techo y portaequipaje overland",
+    title: "Canastillas y portaequipajes de techo",
+    subtitle: "Parrillas de techo y portaequipajes para aventura",
     icon: "rack",
     image: "/img/overland.jpg",
     products: [
-      { name: "Canastilla Roof Rack Overland", desc: "Plataforma modular de aluminio con rieles en T.", price: 1450, image: "/img/overland.jpg", fits: ["Hilux", "Raptor"] },
+      { name: "Canastilla portaequipajes para aventura", desc: "Plataforma modular de aluminio con rieles en T.", price: 1450, image: "/img/overland.jpg", fits: ["Hilux", "Raptor"] },
       { name: "Barras de Techo + portaequipaje", desc: "Juego de barras transversales con cerradura.", price: 620, unit: "juego", image: "/img/overland.jpg", fits: ["Universal"] },
     ],
   },
@@ -142,7 +142,7 @@ export const categories: Category[] = [
     image: "/img/raptor-orange.jpg",
     products: [
       { name: "Cubrelluvias Hilux (4 puertas)", desc: "Acrílico ahumado con cinta 3M, instalación sin perforar.", price: 180, unit: "juego", image: "/img/raptor-orange.jpg", fits: ["Hilux"] },
-      { name: "Cubrelluvias Raptor", desc: "Set completo ahumado, ajuste exacto.", price: 200, unit: "juego", image: "/img/raptor-bridge.jpg", fits: ["Raptor"] },
+      { name: "Cubrelluvias Raptor", desc: "Conjunto completo ahumado, ajuste exacto.", price: 200, unit: "juego", image: "/img/raptor-bridge.jpg", fits: ["Raptor"] },
     ],
   },
 ];
@@ -259,7 +259,7 @@ export const needToCategory: Record<string, string> = {
   "Faros LED": "faros-led",
   "Faros posteriores": "faros-posteriores",
   "Barras LED": "barras-led",
-  "Aros & Rines": "aros",
+  "Aros y rines": "aros",
   Defensas: "defensas",
   Canastillas: "canastillas",
   Pisaderas: "pisaderas",
@@ -268,10 +268,10 @@ export const needToCategory: Record<string, string> = {
 
 export const gallery: { src: string; alt: string; span?: boolean }[] = [
   { src: "/img/raptor-sunset.jpg", alt: "Raptor al atardecer", span: true },
-  { src: "/img/overland.jpg", alt: "camioneta 4x4 overland con roof rack y barra LED" },
-  { src: "/img/offroad-lightbar.jpg", alt: "4x4 con barra LED y defensa en la noche" },
+  { src: "/img/overland.jpg", alt: "camioneta 4x4 de aventura con portaequipajes y barra LED" },
+  { src: "/img/offroad-lightbar.jpg", alt: "4x4 con barra LED y defensa de noche" },
   { src: "/img/raptor-bridge.jpg", alt: "Raptor negro modernizado" },
-  { src: "/img/wheels.jpg", alt: "Aros off-road con neumático todoterreno" },
+  { src: "/img/wheels.jpg", alt: "Aros todoterreno con neumático todoterreno" },
   { src: "/img/bullbar.jpg", alt: "Defensa frontal con ganchos de rescate" },
   { src: "/img/led-angel.jpg", alt: "Faros LED con luz diurna" },
   { src: "/img/taillight2.jpg", alt: "Faros posteriores LED" },

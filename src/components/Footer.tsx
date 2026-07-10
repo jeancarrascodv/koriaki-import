@@ -8,7 +8,7 @@ export function Footer() {
         <Logo size="sm" />
 
         <p className="text-center text-xs text-white/45">
-          Conversiones · Faros LED · Accesorios 4x4 — Hilux & Raptor · Ate, Lima
+          Conversiones · Faros LED · Accesorios 4x4 — Hilux y Raptor · Ate, Lima
         </p>
 
         <div className="flex items-center gap-4 text-sm text-white/60">

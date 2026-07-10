@@ -30,7 +30,7 @@ export default function Home() {
             <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-accent/25 blur-3xl" />
             <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
-                <p className="eyebrow text-xs text-accent">Marketplace</p>
+                <p className="eyebrow text-xs text-accent">Tienda</p>
                 <h3 className="font-display uppercase mt-2 text-3xl sm:text-4xl">
                   Arma tu pedido en la tienda
                 </h3>

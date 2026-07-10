@@ -40,7 +40,7 @@ export function Nav() {
       )}
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8">
         <a href="#top" className="group">
-          <Logo size="sm" />
+          <Logo size="xl" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

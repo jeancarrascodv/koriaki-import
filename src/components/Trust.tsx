@@ -1,7 +1,7 @@
 const items = [
   { t: "Envíos a todo el Perú", d: "Courier y agencia" },
   { t: "Precio de distribuidor", d: "Importación directa" },
-  { t: "Stock en Lima", d: "Almacén en Ate" },
+  { t: "Disponibilidad en Lima", d: "Almacén en Ate" },
   { t: "Ajuste garantizado", d: "Por modelo y año" },
   { t: "Asesoría técnica", d: "Antes y después" },
 ];

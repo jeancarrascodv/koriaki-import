@@ -19,7 +19,7 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-20 left-1/4 h-[420px] w-[680px] rounded-full bg-accent/15 blur-[150px]" />
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-5 pb-16 pt-28 sm:px-8">
-        <div className="max-w-3xl translate-y-10">
+        <div className="max-w-3xl translate-y-20">
           <div className="reveal inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/85 backdrop-blur">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             Importación directa · Precios de distribuidor
@@ -74,7 +74,7 @@ export function Hero() {
             {[
               { k: "+500", v: "Vehículos modernizados" },
               { k: "2", v: "Modelos especialistas" },
-              { k: "100%", v: "Stock en Lima" },
+              { k: "100%", v: "Disponibilidad en Lima" },
             ].map((s) => (
               <div key={s.v}>
                 <div className="font-display text-3xl text-accent sm:text-4xl">{s.k}</div>

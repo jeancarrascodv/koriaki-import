@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const perks = [
   "Importación directa: mejores precios para distribuidores y talleres",
-  "Stock permanente en nuestro almacén de Ate, Lima",
+  "Disponibilidad permanente en nuestro almacén de Ate, Lima",
   "Productos específicos por modelo y año — ajuste garantizado",
-  "Asesoría técnica y soporte post-venta",
+  "Asesoría técnica y soporte posventa",
 ];
 
 export function About() {
@@ -52,7 +52,7 @@ export function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             <div className="absolute bottom-4 left-5 right-5">
               <p className="text-sm font-semibold text-white">
-                Especialistas en 4x4 · Hilux & Raptor
+                Especialistas en 4x4 · Hilux y Raptor
               </p>
             </div>
           </div>
