@@ -16,7 +16,7 @@ export function Logo({
   const { w, h } = sizes[size];
   return (
     <Image
-      src="/img/LOGO-HORIZONTAL.jpg"
+      src="/img/LOGO-HORIZONTAL.png"
       alt="Koriaki Import"
       width={w}
       height={h}
@@ -30,7 +30,7 @@ export function Logo({
 export function LogoMark({ className = "" }: { className?: string }) {
   return (
     <Image
-      src="/img/LOGO-HORIZONTAL.jpg"
+      src="/img/LOGO-HORIZONTAL.png"
       alt="Koriaki Import"
       width={48}
       height={48}
