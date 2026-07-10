@@ -3,7 +3,7 @@ export const site = {
   tagline: "Conversiones & Modernización 4x4",
   phone: "+51 998 477 446",
   whatsapp: "51998477446", // Perú (+51) 998 477 446
-  email: "ventas@koriakiimport.com",
+  email: "koriakioperaciones@gmail.com",
   address: "Separadora Industrial, Ate — Lima, Perú",
   hours: "Mon to Sat · 9:00 a.m. – 6:00 p.m.",
   instagram: "https://instagram.com/koriakiimport",
