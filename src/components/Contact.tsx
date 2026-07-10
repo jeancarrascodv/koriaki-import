@@ -13,7 +13,7 @@ export function Contact() {
           ¿Listo para modernizar tu camioneta?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-white/65">
-          Escríbenos y recibe la lista de precios de distribuidor actualizada y
+          Escríbenoss y recibe la lista de precios de distribuidor actualizada y
           disponibilidad de stock.
         </p>
 
