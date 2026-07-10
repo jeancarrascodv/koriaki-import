@@ -3,7 +3,7 @@ import { site } from "@/data/site";
 
 export function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden">
+    <section id="top" className="relative min-h-[82svh] overflow-hidden">
       {/* Full-bleed background photo */}
       <Image
         src="/img/hero-night.jpg"
@@ -14,11 +14,11 @@ export function Hero() {
         className="object-cover"
       />
       {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-background/25 to-background/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/55 via-background/15 to-transparent" />
       <div className="pointer-events-none absolute -top-20 left-1/4 h-[420px] w-[680px] rounded-full bg-accent/15 blur-[150px]" />
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-5 pb-16 pt-28 sm:px-8">
+      <div className="relative mx-auto flex min-h-[82svh] max-w-7xl flex-col justify-center px-5 pb-16 pt-28 sm:px-8">
         <div className="max-w-3xl translate-y-20">
           <div className="reveal inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/85 backdrop-blur">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
