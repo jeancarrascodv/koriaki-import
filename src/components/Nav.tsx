@@ -27,7 +27,7 @@ export function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/70 backdrop-blur-md border-b border-white/10"
+          ? "h-20 bg-background/70 backdrop-blur-md border-b border-white/10"
           : "bg-transparent"
       }`}
     >
@@ -38,9 +38,9 @@ export function Nav() {
           </div>
         </div>
       )}
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8">
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 py-2 sm:px-8">
         <a href="#top" className="group">
-          <Logo size="xl" />
+          <Logo size="lg" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
