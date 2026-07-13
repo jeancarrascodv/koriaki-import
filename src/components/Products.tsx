@@ -119,6 +119,7 @@ function CategoryBlock({
           width={1280}
           height={560}
           sizes="(max-width: 768px) 100vw, 1200px"
+          quality={80}
           className="h-48 w-full object-cover sm:h-64"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-background/10" />

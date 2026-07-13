@@ -60,6 +60,7 @@ export function About() {
                 width={1100}
                 height={760}
                 sizes="(max-width: 1024px) 100vw, 560px"
+                quality={85}
                 className="h-64 w-full object-cover sm:h-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />

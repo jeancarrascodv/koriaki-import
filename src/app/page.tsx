@@ -13,7 +13,6 @@ import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
-import { waContact } from "@/lib/wa";
 
 export default function Home() {
   return (

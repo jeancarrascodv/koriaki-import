@@ -10,6 +10,7 @@ export function Hero() {
         alt="Hilux y Ranger con kits de conversión y accesorios premium"
         fill
         priority
+        quality={90}
         sizes="100vw"
         className="object-cover"
       />
