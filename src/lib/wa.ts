@@ -5,12 +5,40 @@
  * Never hardcode wa.me URLs inline — use these helpers instead.
  */
 
-import { site } from "@/data/site";
+import { representatives } from "./representatives";
 
-const BASE = `https://wa.me/${site.whatsapp}`;
+function getBase(phone: string) {
+  return `https://wa.me/${phone}`;
+}
 
-function waUrl(message: string): string {
-  return `${BASE}?text=${encodeURIComponent(message)}`;
+function waUrl(message: string, phone: string = representatives.toyota.phone) {
+  return `${getBase(phone)}?text=${encodeURIComponent(message)}`;
+}
+
+function sortedBrands(brands: string[]) {
+  return [...brands].sort((a, b) => b.length - a.length);
+}
+
+function detectRepresentative(text: string) {
+  const lower = text.toLowerCase();
+
+  for (const brand of sortedBrands(representatives.toyota.brands)) {
+    if (lower.includes(brand.toLowerCase())) {
+      return representatives.toyota;
+    }
+  }
+
+  for (const brand of sortedBrands(representatives.ford.brands)) {
+    if (lower.includes(brand.toLowerCase())) {
+      return representatives.ford;
+    }
+  }
+
+  return null;
+}
+
+function resolvePhone(text: string): string {
+  return detectRepresentative(text)?.phone ?? representatives.toyota.phone;
 }
 
 // ─── General CTAs ──────────────────────────────────────────────────────────
@@ -37,9 +65,9 @@ export const waGallery = waUrl(
 
 /** Featured Conversions CTA — specific kit enquiry */
 export function waFeatured(kitName: string): string {
-  return waUrl(
-    `Hola KORIAKI IMPORT 👋 Vi la conversión *${kitName}* y me interesa saber disponibilidad y precios. ¿Pueden asesorarme?`
-  );
+  const message =
+    `Hola KORIAKI IMPORT 👋 Vi la conversión *${kitName}* y me interesa saber disponibilidad y precios. ¿Pueden asesorarme?`;
+  return waUrl(message, resolvePhone(kitName));
 }
 
 /** Contact section — request price list */
@@ -56,8 +84,17 @@ export interface VehicleQuoteParams {
 }
 
 export function waVehicle({ model, year, need }: VehicleQuoteParams): string {
+
+  const message =
+    `Hola KORIAKI IMPORT 👋 Tengo un *${model}* (${year}) y me interesa cotizar: *${need}*. ¿Tienen disponibilidad y pueden enviarme información?`;
+
+  const rep = detectRepresentative(
+    `${model} ${need}`
+  );
+
   return waUrl(
-    `Hola KORIAKI IMPORT 👋 Tengo un *${model}* (${year}) y me interesa cotizar: *${need}*. ¿Tienen disponibilidad y pueden enviarme información?`
+    message,
+    rep?.phone ?? representatives.toyota.phone
   );
 }
 
@@ -71,10 +108,18 @@ export interface ProductQuoteParams {
 
 export function waProduct({ name, categoryTitle, fits }: ProductQuoteParams): string {
   const compatible = fits.filter((f) => f !== "Universal").join(" / ");
+
+  const message = `Hola KORIAKI IMPORT 👋 Me interesa cotizar: *${name}* (${categoryTitle})${
+    compatible ? ` — compatible con ${compatible}` : ""
+  }. ¿Tienen disponibilidad?`;
+
+  const rep = detectRepresentative(
+    `${name} ${categoryTitle} ${fits.join(" ")}`
+  );
+
   return waUrl(
-    `Hola KORIAKI IMPORT 👋 Me interesa cotizar: *${name}* (${categoryTitle})${
-      compatible ? ` — compatible con ${compatible}` : ""
-    }. ¿Tienen disponibilidad?`
+    message,
+    rep?.phone ?? representatives.toyota.phone
   );
 }
 
@@ -83,6 +128,7 @@ export function waProduct({ name, categoryTitle, fits }: ProductQuoteParams): st
 export interface QuotationItem {
   name: string;
   qty: number;
+  fits?: string[];
 }
 
 export function waQuotationList(items: QuotationItem[]): string {
@@ -90,7 +136,11 @@ export function waQuotationList(items: QuotationItem[]): string {
   const lines = items
     .map((i) => `  • ${i.name}${i.qty > 1 ? ` (x${i.qty})` : ""}`)
     .join("\n");
+  const context = items
+    .map((i) => `${i.name} ${(i.fits ?? []).join(" ")}`)
+    .join(" ");
   return waUrl(
-    `Hola KORIAKI IMPORT 👋 Quisiera cotizar los siguientes productos:\n\n${lines}\n\n¿Pueden confirmar disponibilidad y enviarme precios?`
+    `Hola KORIAKI IMPORT 👋 Quisiera cotizar los siguientes productos:\n\n${lines}\n\n¿Pueden confirmar disponibilidad y enviarme precios?`,
+    resolvePhone(context)
   );
 }

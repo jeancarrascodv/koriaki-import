@@ -21,8 +21,8 @@ import {
   useMemo,
   useState,
 } from "react";
-import { allProducts, site, type FlatProduct } from "@/data/site";
-import { waQuotationList } from "@/lib/wa";
+import { allProducts, type FlatProduct } from "@/data/site";
+import { waGeneral, waQuotationList } from "@/lib/wa";
 
 const STORAGE = "koriaki-quotation";
 
@@ -92,8 +92,10 @@ export function QuotationProvider({ children }: { children: React.ReactNode }) {
   const count = items.length;
 
   const waHref = useMemo(() => {
-    if (!items.length) return `https://wa.me/${site.whatsapp}`;
-    return waQuotationList(items.map((i) => ({ name: i.p.name, qty: 1 })));
+    if (!items.length) return waGeneral;
+    return waQuotationList(
+      items.map((i) => ({ name: i.p.name, qty: 1, fits: i.p.fits }))
+    );
   }, [items]);
 
   return (
