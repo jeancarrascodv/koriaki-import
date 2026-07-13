@@ -35,6 +35,13 @@ export const waGallery = waUrl(
   "Hola KORIAKI IMPORT 👋 Vi la galería y me interesa cotizar un kit para mi vehículo."
 );
 
+/** Featured Conversions CTA — specific kit enquiry */
+export function waFeatured(kitName: string): string {
+  return waUrl(
+    `Hola KORIAKI IMPORT 👋 Vi la conversión *${kitName}* y me interesa saber disponibilidad y precios. ¿Pueden asesorarme?`
+  );
+}
+
 /** Contact section — request price list */
 export const waContact = waUrl(
   "Hola KORIAKI IMPORT 👋 Quisiera recibir información sobre sus kits de conversión y accesorios disponibles."

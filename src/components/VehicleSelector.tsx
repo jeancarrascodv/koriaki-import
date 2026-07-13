@@ -13,11 +13,11 @@ const needs = Object.keys(needToCategory);
 export function VehicleSelector() {
   const { setFilter } = useFilter();
   const [modelLabel, setModelLabel] = useState(selectorModels[0].label);
-  const [year, setYear] = useState(years[2]);
-  const [need, setNeed] = useState(needs[0]);
+  const [year, setYear]             = useState(years[2]);
+  const [need, setNeed]             = useState(needs[0]);
 
   const selected = selectorModels.find((m) => m.label === modelLabel);
-  const fit = selected?.fit ?? null;
+  const fit      = selected?.fit ?? null;
 
   const verCatalogo = () => {
     setFilter({ category: needToCategory[need], model: fit as Fit | null });
@@ -33,16 +33,22 @@ export function VehicleSelector() {
   return (
     <section className="relative z-20 mx-auto -mt-16 max-w-5xl px-5 sm:px-8">
       <div className="overflow-hidden rounded-3xl border border-white/12 bg-steel/90 p-6 shadow-2xl shadow-black/50 backdrop-blur sm:p-8">
+
+        {/* Header */}
         <div className="flex items-center gap-2">
-          <span className="eyebrow text-[11px] text-accent">Encuentra tu producto</span>
+          <span className="eyebrow text-[11px] text-accent">Compatibilidad por vehículo</span>
           <span className="h-px flex-1 bg-white/10" />
         </div>
         <h2 className="font-display uppercase mt-2 text-2xl sm:text-3xl">
-          ¿Qué vehículo tienes?
+          Encuentra productos para tu vehículo
         </h2>
+        <p className="mt-1.5 text-sm text-white/55">
+          Selecciona tu modelo y año — te mostramos solo los productos 100% compatibles.
+        </p>
 
+        {/* Selectors */}
         <div className="mt-5 grid gap-4 sm:grid-cols-3">
-          <Field label="Marca y modelo">
+          <Field label="Marca y modelo" hint="Toyota o Ford">
             <select
               value={modelLabel}
               onChange={(e) => setModelLabel(e.target.value)}
@@ -64,7 +70,7 @@ export function VehicleSelector() {
             </select>
           </Field>
 
-          <Field label="Año">
+          <Field label="Año de fabricación" hint="Del 2015 al 2025">
             <select value={year} onChange={(e) => setYear(e.target.value)} className={selectCls}>
               {years.map((y) => (
                 <option key={y} className="bg-steel">{y}</option>
@@ -72,7 +78,7 @@ export function VehicleSelector() {
             </select>
           </Field>
 
-          <Field label="¿Qué buscas?">
+          <Field label="¿Qué tipo de accesorio buscas?" hint="Kit, faros, parachoques…">
             <select value={need} onChange={(e) => setNeed(e.target.value)} className={selectCls}>
               {needs.map((n) => (
                 <option key={n} className="bg-steel">{n}</option>
@@ -81,10 +87,11 @@ export function VehicleSelector() {
           </Field>
         </div>
 
+        {/* CTAs */}
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <button
             onClick={verCatalogo}
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-soft px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-soft px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-black shadow-lg shadow-accent/20 transition-all hover:scale-[1.02] hover:shadow-accent/35"
           >
             Ver productos compatibles <ArrowRight className="h-5 w-5" />
           </button>
@@ -92,14 +99,15 @@ export function VehicleSelector() {
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
+            className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-white transition-colors hover:border-white/30 hover:bg-white/10"
           >
             <WhatsAppIcon className="h-5 w-5" /> Cotizar por WhatsApp
           </a>
         </div>
 
-        <p className="mt-3 text-center text-xs text-white/50">
-          Filtramos el catálogo por tu vehículo · Atención Lun–Sáb 9 a.m.–6 p.m.
+        {/* Footer note */}
+        <p className="mt-3 text-center text-xs text-white/45">
+          Compatibilidad verificada por modelo y año · Atención Lun–Sáb 9 a.m.–6 p.m.
         </p>
       </div>
     </section>
@@ -109,10 +117,19 @@ export function VehicleSelector() {
 const selectCls =
   "w-full appearance-none rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white outline-none transition-colors focus:border-accent";
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  hint,
+  children,
+}: {
+  label: string;
+  hint: string;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-medium text-white/55">{label}</span>
+      <span className="mb-0.5 block text-xs font-semibold text-white/70">{label}</span>
+      <span className="mb-1.5 block text-[11px] text-white/35">{hint}</span>
       <div className="relative">
         {children}
         <svg
