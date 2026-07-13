@@ -25,9 +25,8 @@ export function About() {
             suministrando piezas de alta calidad a precio de importación directa.
           </p>
           <p className="mt-3 text-white/70">
-            <strong>Vendemos las piezas.</strong> Tú las llevas al taller de tu
-            confianza. Nuestro rol es garantizarte el producto correcto para tu
-            vehículo, con stock disponible y despacho rápido.
+            Te asesoramos para encontrar la conversión perfecta para tu vehículo
+            y te acompañamos durante todo el proceso de cotización y compra.
           </p>
 
           <ul className="mt-7 space-y-3">

@@ -4,7 +4,6 @@ import { Hero } from "@/components/Hero";
 import { VehicleSelector } from "@/components/VehicleSelector";
 import { Trust } from "@/components/Trust";
 import { Services } from "@/components/Services";
-import { Gallery } from "@/components/Gallery";
 import { Products } from "@/components/Products";
 import { Testimonials } from "@/components/Testimonials";
 import { About } from "@/components/About";
@@ -23,7 +22,6 @@ export default function Home() {
           <Trust />
         </div>
         <Services />
-        <Gallery />
         <Products />
         <section className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-accent/20 via-steel to-steel p-8 sm:p-12">

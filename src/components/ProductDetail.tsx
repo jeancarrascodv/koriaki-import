@@ -49,7 +49,7 @@ export function ProductDetail({ product }: { product: FlatProduct }) {
       </nav>
 
       <div className="mt-6 grid gap-10 lg:grid-cols-12">
-        {/* Gallery */}
+        {/* Product images */}
         <div className="lg:col-span-7">
           <div className="flex flex-col-reverse gap-4 sm:flex-row">
             {/* Thumbs */}

@@ -10,12 +10,12 @@
 export const site = {
   name: "KORIAKI IMPORT",
   tagline: "Kits de conversión y accesorios premium para Toyota y Ford",
-  phone: "+51 998 477 446",
-  whatsapp: "51998477446", // Perú (+51) 998 477 446
+  phone: "976 382 433",
+  whatsapp: "51976382433", // Perú (+51) 976 382 433
   email: "koriakioperaciones@gmail.com",
   address: "Separadora Industrial, Ate — Lima, Perú",
   hours: "Lun. a sáb. · 9:00 a. m. – 6:00 p. m.",
-  instagram: "https://instagram.com/koriakiimport",
+  instagram: "https://www.instagram.com/koriaki.import",
 };
 
 // ─── Vehicle compatibility ────────────────────────────────────────────────────

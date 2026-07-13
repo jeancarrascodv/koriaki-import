@@ -5,11 +5,10 @@ import { Logo } from "./Logo";
 import { waQuote } from "@/lib/wa";
 
 const links = [
-  { href: "/tienda", label: "Catálogo" },
-  { href: "#galeria", label: "Galería" },
+  { href: "/tienda",   label: "Catálogo"  },
   { href: "#catalogo", label: "Productos" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "#servicios",label: "Servicios" },
+  { href: "#contacto", label: "Contacto"  },
 ];
 
 export function Nav() {

@@ -33,8 +33,8 @@ export function Services() {
             Importadores y distribuidores especializados
           </h2>
           <p className="mt-4 text-white/65">
-            Vendemos las piezas. Tú las llevas al taller de tu confianza.
-            Así de simple.
+          Te asesoramos para encontrar la conversión perfecta para tu vehículo
+            y te acompañamos durante todo el proceso de cotización y compra.
           </p>
         </div>
 
