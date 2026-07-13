@@ -4,9 +4,9 @@
   --background: #0a0a0a;
   --foreground: #f3f1ea;
   --steel: #16150f;
-  --accent: #c8a24a; /* dorado de marca KORIAKI */
-  --accent-soft: #e3c270;
-  --accent-2: #e6c976; /* dorado claro — precios y acentos */
+  --accent: #c8a24a;       /* brand gold — KORIAKI IMPORT */
+  --accent-soft: #e3c270;  /* lighter gold */
+  --accent-2: #e6c976;     /* warmest gold — highlights */
 }
 
 @theme inline {
@@ -22,45 +22,61 @@
   --font-serif: var(--font-serif);
 }
 
+/* ─── Base ──────────────────────────────────────────────────────────────── */
+
 html {
   scroll-behavior: smooth;
+  /* Custom scrollbar — Chrome/Edge */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
 }
+
+html::-webkit-scrollbar { width: 6px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 9999px; }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-}
-
-/* Display headings — Anton, condensed & uppercase for automotive impact */
-.font-display {
-  font-family: var(--font-display), Impact, sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 0.98;
-}
-
-.font-cond {
-  font-family: var(--font-cond), system-ui, sans-serif;
-}
-
-.eyebrow {
-  font-family: var(--font-cond), system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: #000;
 }
+
+/* ─── Typography tokens ─────────────────────────────────────────────────── */
+
+/* Anton — condensed impact headlines */
+.font-display {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+}
+
+/* Oswald — UI labels, sub-headers */
+.font-cond {
+  font-family: var(--font-cond), system-ui, sans-serif;
+}
+
+/* Eyebrow labels — tight uppercase tracking, Oswald */
+.eyebrow {
+  font-family: var(--font-cond), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* ─── Animations ────────────────────────────────────────────────────────── */
 
 @keyframes fadeup {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(32px);
   }
   to {
     opacity: 1;
@@ -69,13 +85,22 @@ body {
 }
 
 .reveal {
-  animation: fadeup 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fadeup 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* ─── Textures ──────────────────────────────────────────────────────────── */
+
+/* Subtle dot grain overlay */
 .grain {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
-  background-size: 22px 22px;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
 }
+
+/* ─── Utilities ─────────────────────────────────────────────────────────── */
 
 .text-balance {
   text-wrap: balance;
