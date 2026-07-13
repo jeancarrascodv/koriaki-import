@@ -45,8 +45,6 @@ export function Hero() {
             <span className="bg-gradient-to-r from-accent-2 via-accent to-accent-soft bg-clip-text text-transparent">
               Ford
             </span>
-            <br className="hidden sm:block" />
-            <span className="text-white/90"> con piezas de importación</span>
           </h1>
 
           {/* Supporting copy */}
