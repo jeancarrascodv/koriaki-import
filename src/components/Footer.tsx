@@ -1,5 +1,6 @@
 import { Logo } from "./Logo";
 import { site } from "@/data/site";
+import { waGeneral } from "@/lib/wa";
 
 export function Footer() {
   return (
@@ -8,14 +9,14 @@ export function Footer() {
         <Logo size="sm" />
 
         <p className="text-center text-xs text-white/45">
-          Conversiones · Faros LED · Accesorios 4x4 — Hilux y Raptor · Ate, Lima
+          Kits de conversión · Faros LED · Accesorios 4x4 — Toyota y Ford · Ate, Lima
         </p>
 
         <div className="flex items-center gap-4 text-sm text-white/60">
           <a href="/tienda" className="hover:text-white">
-            Tienda
+            Catálogo
           </a>
-          <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          <a href={waGeneral} target="_blank" rel="noopener noreferrer" className="hover:text-white">
             WhatsApp
           </a>
           <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white">

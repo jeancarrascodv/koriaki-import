@@ -3,23 +3,23 @@ import { Icon } from "./Icons";
 const services = [
   {
     icon: "convert" as const,
-    title: "Conversión de carrocería",
-    desc: "Transformamos tu Hilux al estilo Raptor o deportivo con juegos completos e instalación profesional.",
-  },
-  {
-    icon: "led" as const,
-    title: "Modernización LED",
-    desc: "Mejora de iluminación delantera y posterior: faros LED completos con luz diurna y secuencial.",
+    title: "Importación directa",
+    desc: "Importamos directamente desde fabricantes especializados. Sin intermediarios — mejor calidad y mayor disponibilidad para talleres, revendedores y clientes finales.",
   },
   {
     icon: "headlight" as const,
-    title: "Instalación & asesoría",
-    desc: "Montaje directo de faros, pisaderas y accesorios. Garantía y soporte posventa.",
+    title: "Catálogo especializado",
+    desc: "Kits de conversión, faros LED, parachoques, guardafangos y más, específicos para Toyota Hilux, Fortuner, Prado y Ford Ranger. Cada pieza seleccionada por compatibilidad y calidad.",
   },
   {
     icon: "step" as const,
-    title: "Accesorios a medida",
-    desc: "Pisaderas, cubrelluvias y detalles exteriores con ajuste exacto por modelo y año.",
+    title: "Compatibilidad garantizada",
+    desc: "Cada producto está catalogado por modelo, año y versión. Te ayudamos a identificar la pieza correcta antes de tu compra para que el ajuste sea exacto.",
+  },
+  {
+    icon: "rack" as const,
+    title: "Distribución nacional",
+    desc: "Stock permanente en nuestro almacén de Ate, Lima. Despachamos a todo el Perú por courier o agencia de transporte. Atención de lunes a sábado.",
   },
 ];
 
@@ -28,13 +28,13 @@ export function Services() {
     <section id="servicios" className="relative border-y border-white/10 bg-white/[0.02]">
       <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
-          <p className="eyebrow text-xs text-accent">Servicios</p>
+          <p className="eyebrow text-xs text-accent">Lo que ofrecemos</p>
           <h2 className="font-display uppercase text-balance mt-3 text-4xl sm:text-5xl">
-            Más que vender: modernizamos tu 4x4
+            Importadores y distribuidores especializados
           </h2>
           <p className="mt-4 text-white/65">
-            Especialistas en Hilux y Raptor. Importamos, instalamos y
-            damos garantía.
+            Vendemos las piezas. Tú las llevas al taller de tu confianza.
+            Así de simple.
           </p>
         </div>
 
@@ -51,6 +51,37 @@ export function Services() {
               <p className="mt-2 text-sm text-white/60">{s.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Conversion highlight strip */}
+        <div className="mt-14 overflow-hidden rounded-3xl border border-accent/20 bg-gradient-to-r from-accent/10 via-steel to-steel p-8 sm:p-10">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-xl">
+              <p className="eyebrow text-xs text-accent">Nuestra especialidad</p>
+              <h3 className="font-display uppercase mt-2 text-2xl sm:text-3xl">
+                Actualiza tu vehículo a la generación más reciente
+              </h3>
+              <p className="mt-3 text-sm text-white/65">
+                Muchos de nuestros clientes adquieren sus piezas para transformar
+                la apariencia de su vehículo al estilo de un modelo más nuevo.
+                Vendemos los kits completos para que tú o tu taller de confianza
+                realicen la transformación.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-3 text-sm font-semibold">
+              {[
+                { from: "Hilux",    to: "GR Sport"    },
+                { from: "Fortuner", to: "Legender"    },
+                { from: "Ranger",   to: "F150 R Style"},
+              ].map((c) => (
+                <div key={c.to} className="flex items-center gap-2">
+                  <span className="rounded-lg bg-white/10 px-3 py-1.5 text-white/80">{c.from}</span>
+                  <span className="text-accent">→</span>
+                  <span className="rounded-lg bg-accent/15 px-3 py-1.5 text-accent">{c.to}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

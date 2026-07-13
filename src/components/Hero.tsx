@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { site } from "@/data/site";
+import { waHero, waQuote } from "@/lib/wa";
 
 export function Hero() {
   return (
@@ -7,7 +7,7 @@ export function Hero() {
       {/* Full-bleed background photo */}
       <Image
         src="/img/hero-night.jpg"
-        alt="Camionetas 4x4 modernizadas con barras LED de noche"
+        alt="Hilux y Ranger con kits de conversión y accesorios premium"
         fill
         priority
         sizes="100vw"
@@ -19,23 +19,23 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-20 left-1/4 h-[420px] w-[680px] rounded-full bg-accent/15 blur-[150px]" />
 
       <div className="relative mx-auto flex min-h-[82svh] max-w-7xl flex-col justify-center px-5 pb-16 pt-28 sm:px-8">
-        <div className="max-w-3xl translate-y-20">
+        <div className="max-w-3xl">
           <div className="reveal inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/85 backdrop-blur">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-            Importación directa · Precios de distribuidor
+            Importación directa · Toyota y Ford · Stock en Lima
           </div>
 
           <h1
             className="reveal font-display uppercase text-balance mt-6 text-5xl leading-[0.95] sm:text-7xl lg:text-[5.5rem]"
             style={{ animationDelay: "60ms" }}
           >
-            Modernizamos tu{" "}
+            Kits de conversión y accesorios para{" "}
             <span className="bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
-              Hilux
+              Toyota
             </span>{" "}
             y{" "}
             <span className="bg-gradient-to-r from-accent-2 to-accent bg-clip-text text-transparent">
-              Raptor
+              Ford
             </span>
           </h1>
 
@@ -43,27 +43,47 @@ export function Hero() {
             className="reveal text-balance mt-6 max-w-xl text-base text-white/80 sm:text-lg"
             style={{ animationDelay: "120ms" }}
           >
-            Conversiones de carrocería, faros LED, faros posteriores, pisaderas
-            y cubrelluvias. Calidad de importación con stock en Lima.
+            Importamos y distribuimos kits de conversión completos, faros LED,
+            parachoques, guardafangos y accesorios exteriores premium.
+            Compatibilidad garantizada por modelo y año.
           </p>
+
+          {/* Conversion highlights */}
+          <div
+            className="reveal mt-5 flex flex-wrap gap-2"
+            style={{ animationDelay: "150ms" }}
+          >
+            {[
+              "Hilux → GR Sport",
+              "Fortuner → Legender",
+              "Ranger → F150 R Style",
+            ].map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
 
           <div
             className="reveal mt-9 flex flex-col gap-3 sm:flex-row"
             style={{ animationDelay: "180ms" }}
           >
             <a
-              href="#productos"
-              className="rounded-full bg-gradient-to-r from-accent to-accent-soft px-7 py-3.5 text-center font-cond text-base font-bold uppercase tracking-wide text-black shadow-lg shadow-accent/25 transition-transform hover:scale-105"
-            >
-              Ver catálogo y precios
-            </a>
-            <a
-              href={`https://wa.me/${site.whatsapp}?text=Hola%20KORIAKI%20IMPORT,%20quiero%20cotizar`}
+              href={waHero}
               target="_blank"
               rel="noopener noreferrer"
+              className="rounded-full bg-gradient-to-r from-accent to-accent-soft px-7 py-3.5 text-center font-cond text-base font-bold uppercase tracking-wide text-black shadow-lg shadow-accent/25 transition-transform hover:scale-105"
+            >
+              Solicitar Cotización
+            </a>
+            <a
+              href="#catalogo"
               className="rounded-full border border-white/25 bg-white/10 px-7 py-3.5 text-center text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
             >
-              Cotizar por WhatsApp
+              Ver catálogo
             </a>
           </div>
 
@@ -72,9 +92,9 @@ export function Hero() {
             style={{ animationDelay: "260ms" }}
           >
             {[
-              { k: "+500", v: "Vehículos modernizados" },
-              { k: "2", v: "Modelos especialistas" },
-              { k: "100%", v: "Disponibilidad en Lima" },
+              { k: "+500", v: "Pedidos despachados" },
+              { k: "8",    v: "Modelos compatibles" },
+              { k: "100%", v: "Stock en Lima" },
             ].map((s) => (
               <div key={s.v}>
                 <div className="font-display text-3xl text-accent sm:text-4xl">{s.k}</div>
@@ -84,7 +104,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }

@@ -1,9 +1,9 @@
 const items = [
   { t: "Envíos a todo el Perú", d: "Courier y agencia" },
-  { t: "Precio de distribuidor", d: "Importación directa" },
-  { t: "Disponibilidad en Lima", d: "Almacén en Ate" },
-  { t: "Ajuste garantizado", d: "Por modelo y año" },
-  { t: "Asesoría técnica", d: "Antes y después" },
+  { t: "Importación directa",   d: "Sin intermediarios" },
+  { t: "Stock en Lima",         d: "Almacén en Ate" },
+  { t: "Compatibilidad exacta", d: "Por modelo y año" },
+  { t: "Asesoría de compra",    d: "Antes de tu pedido" },
 ];
 
 export function Trust() {

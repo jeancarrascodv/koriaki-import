@@ -30,28 +30,31 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://koriaki-import.vercel.app"),
+  metadataBase: new URL("https://koriakiimport.com"),
   title: {
-    default: "KORIAKI IMPORT — Conversiones Hilux & Raptor | Lima",
+    default: "KORIAKI IMPORT — Kits de Conversión y Accesorios 4x4 | Lima, Perú",
     template: "%s | KORIAKI IMPORT",
   },
   description:
-    "Conversiones, faros LED, faros posteriores, pisaderas y cubrelluvias para Hilux y Raptor. Modernización de vehículos 4x4. Almacén en Separadora Industrial, Ate, Lima. Precios de distribuidor.",
+    "Importadores y distribuidores de kits de conversión, faros LED, parachoques, guardafangos y accesorios exteriores para Toyota Hilux, Fortuner, Prado y Ford Ranger. Stock en Lima, envíos a todo el Perú.",
   keywords: [
-    "conversiones Hilux",
-    "Raptor Perú",
+    "kit conversión Hilux GR Sport",
+    "kit conversión Fortuner Legender",
+    "kit conversión Ranger F150",
     "faros LED Hilux",
-    "pisaderas pickup",
-    "cubrelluvias",
-    "modernización 4x4",
-    "accesorios Hilux Lima",
+    "faros LED Fortuner",
+    "parachoques Hilux",
+    "guardafangos Hilux",
+    "accesorios Toyota Hilux Lima",
+    "accesorios Ford Ranger Lima",
+    "importador accesorios 4x4 Perú",
     "KORIAKI IMPORT",
   ],
   authors: [{ name: "KORIAKI IMPORT" }],
   openGraph: {
-    title: "KORIAKI IMPORT — Conversiones & Accesorios 4x4",
+    title: "KORIAKI IMPORT — Kits de Conversión y Accesorios 4x4",
     description:
-      "Conversiones Hilux a Raptor, faros LED, pisaderas y más. Precios de distribuidor en Lima.",
+      "Importadores de kits de conversión y accesorios exteriores premium para Toyota Hilux, Fortuner, Prado y Ford Ranger. Stock disponible en Lima, Perú.",
     type: "website",
     locale: "es_PE",
     siteName: "KORIAKI IMPORT",
@@ -60,14 +63,15 @@ export const metadata: Metadata = {
         url: "/img/raptor-sunset.jpg",
         width: 1200,
         height: 630,
-        alt: "Raptor modernizado por KORIAKI IMPORT",
+        alt: "Kit de conversión Hilux por KORIAKI IMPORT",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KORIAKI IMPORT — Conversiones & Accesorios 4x4",
-    description: "Conversiones Hilux/Raptor, faros LED, pisaderas y más. Precios de distribuidor en Lima.",
+    title: "KORIAKI IMPORT — Kits de Conversión y Accesorios 4x4",
+    description:
+      "Importadores de kits de conversión y accesorios exteriores premium para Toyota y Ford. Stock en Lima, Perú.",
     images: ["/img/raptor-sunset.jpg"],
   },
 };

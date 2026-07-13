@@ -1,4 +1,5 @@
 import { site } from "@/data/site";
+import { waContact } from "@/lib/wa";
 import { WhatsAppIcon } from "./Icons";
 
 export function Contact() {
@@ -10,24 +11,22 @@ export function Contact() {
       <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
         <p className="eyebrow text-xs text-accent">Contacto</p>
         <h2 className="font-display uppercase text-balance mx-auto mt-3 max-w-3xl text-4xl sm:text-6xl">
-          ¿Listo para modernizar tu camioneta?
+          ¿Buscas piezas para tu Toyota o Ford?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-white/65">
-          Escríbenos para recibir la lista de precios de distribuidor y conocer
-          la disponibilidad actual.
+          Escríbenos para consultar disponibilidad, compatibilidad con tu modelo
+          y obtener una cotización personalizada.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
-              "Hola KORIAKI IMPORT, quiero la lista de precios de distribuidor"
-            )}`}
+            href={waContact}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-bold text-black transition-transform hover:scale-105"
           >
             <WhatsAppIcon className="h-5 w-5" />
-            WhatsApp
+            Solicitar cotización
           </a>
           <a
             href={`mailto:${site.email}`}

@@ -4,34 +4,31 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppIcon } from "./Icons";
 import { useFilter } from "./Providers";
-import { site, needToCategory, type Fit } from "@/data/site";
+import { selectorModels, needToCategory, type Fit } from "@/data/site";
+import { waVehicle } from "@/lib/wa";
 
-const models: { label: string; fit: Fit | null }[] = [
-  { label: "Hilux", fit: "Hilux" },
-  { label: "Raptor", fit: "Raptor" },
-  { label: "Ranger", fit: "Ranger" },
-  { label: "Otro / No estoy seguro", fit: null },
-];
 const years = Array.from({ length: 11 }, (_, i) => `${2025 - i}`);
 const needs = Object.keys(needToCategory);
 
 export function VehicleSelector() {
   const { setFilter } = useFilter();
-  const [model, setModel] = useState(models[0].label);
+  const [modelLabel, setModelLabel] = useState(selectorModels[0].label);
   const [year, setYear] = useState(years[2]);
   const [need, setNeed] = useState(needs[0]);
 
-  const fit = models.find((m) => m.label === model)?.fit ?? null;
+  const selected = selectorModels.find((m) => m.label === modelLabel);
+  const fit = selected?.fit ?? null;
 
-  const verProductos = () => {
-    setFilter({ category: needToCategory[need], model: fit });
-    document.getElementById("productos")?.scrollIntoView({ behavior: "smooth" });
+  const verCatalogo = () => {
+    setFilter({ category: needToCategory[need], model: fit as Fit | null });
+    document.getElementById("catalogo")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const msg = encodeURIComponent(
-    `Hola KORIAKI IMPORT 👋 Tengo un *${model}* (${year}) y me interesa: *${need}*. ¿Me pasan precio de distribuidor y stock?`
-  );
-  const href = `https://wa.me/${site.whatsapp}?text=${msg}`;
+  const waHref = waVehicle({ model: modelLabel, year, need });
+
+  const toyota = selectorModels.filter((m) => m.brand === "Toyota");
+  const ford   = selectorModels.filter((m) => m.brand === "Ford");
+  const other  = selectorModels.filter((m) => m.brand === null);
 
   return (
     <section className="relative z-20 mx-auto -mt-16 max-w-5xl px-5 sm:px-8">
@@ -41,17 +38,32 @@ export function VehicleSelector() {
           <span className="h-px flex-1 bg-white/10" />
         </div>
         <h2 className="font-display uppercase mt-2 text-2xl sm:text-3xl">
-          ¿Qué camioneta tienes?
+          ¿Qué vehículo tienes?
         </h2>
 
         <div className="mt-5 grid gap-4 sm:grid-cols-3">
-          <Field label="Modelo">
-            <select value={model} onChange={(e) => setModel(e.target.value)} className={selectCls}>
-              {models.map((m) => (
+          <Field label="Marca y modelo">
+            <select
+              value={modelLabel}
+              onChange={(e) => setModelLabel(e.target.value)}
+              className={selectCls}
+            >
+              <optgroup label="Toyota" className="bg-steel">
+                {toyota.map((m) => (
+                  <option key={m.label} className="bg-steel">{m.label}</option>
+                ))}
+              </optgroup>
+              <optgroup label="Ford" className="bg-steel">
+                {ford.map((m) => (
+                  <option key={m.label} className="bg-steel">{m.label}</option>
+                ))}
+              </optgroup>
+              {other.map((m) => (
                 <option key={m.label} className="bg-steel">{m.label}</option>
               ))}
             </select>
           </Field>
+
           <Field label="Año">
             <select value={year} onChange={(e) => setYear(e.target.value)} className={selectCls}>
               {years.map((y) => (
@@ -59,6 +71,7 @@ export function VehicleSelector() {
               ))}
             </select>
           </Field>
+
           <Field label="¿Qué buscas?">
             <select value={need} onChange={(e) => setNeed(e.target.value)} className={selectCls}>
               {needs.map((n) => (
@@ -70,22 +83,23 @@ export function VehicleSelector() {
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <button
-            onClick={verProductos}
+            onClick={verCatalogo}
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-soft px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
           >
-            Ver productos <ArrowRight className="h-5 w-5" />
+            Ver productos compatibles <ArrowRight className="h-5 w-5" />
           </button>
           <a
-            href={href}
+            href={waHref}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 font-cond text-base font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
           >
-            <WhatsAppIcon className="h-5 w-5" /> WhatsApp
+            <WhatsAppIcon className="h-5 w-5" /> Cotizar por WhatsApp
           </a>
         </div>
+
         <p className="mt-3 text-center text-xs text-white/50">
-          Te llevamos directo al catálogo filtrado para tu vehículo · {site.hours}
+          Filtramos el catálogo por tu vehículo · Atención Lun–Sáb 9 a.m.–6 p.m.
         </p>
       </div>
     </section>

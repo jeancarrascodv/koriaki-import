@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ShoppingCart } from "lucide-react";
+import { ArrowLeft, ClipboardList } from "lucide-react";
 import { Logo } from "../Logo";
-import { useCart } from "./CartProvider";
+import { useQuotation } from "./CartProvider";
 
 export function TiendaNav() {
-  const { count, setOpen } = useCart();
+  const { count, setOpen } = useQuotation();
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-background/85 backdrop-blur-md">
@@ -32,8 +32,8 @@ export function TiendaNav() {
             onClick={() => setOpen(true)}
             className="relative flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-black transition-transform hover:scale-105"
           >
-            <ShoppingCart className="h-4 w-4" />
-            <span className="hidden sm:inline">Cotización</span>
+            <ClipboardList className="h-4 w-4" />
+            <span className="hidden sm:inline">Mi Cotización</span>
             {count > 0 && (
               <span className="grid h-5 min-w-5 place-items-center rounded-full bg-black px-1 text-xs font-bold text-accent">
                 {count}

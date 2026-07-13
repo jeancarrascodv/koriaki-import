@@ -1,5 +1,19 @@
 "use client";
 
+/**
+ * QuotationProvider — replaces the former CartProvider.
+ *
+ * This is NOT a shopping cart. It is a quotation list.
+ * - No prices stored or displayed
+ * - No totals calculated
+ * - Items are just product IDs + optional qty for the WA message
+ * - The WA message asks for availability and a personalized quote
+ *
+ * Exported as useQuotation() and QuotationProvider.
+ * Also exports useCart / CartProvider as aliases for backward compatibility
+ * until all import sites are updated.
+ */
+
 import {
   createContext,
   useContext,
@@ -8,97 +22,86 @@ import {
   useState,
 } from "react";
 import { allProducts, site, type FlatProduct } from "@/data/site";
+import { waQuotationList } from "@/lib/wa";
 
-const STORAGE = "koriaki-cart";
+const STORAGE = "koriaki-quotation";
 
-const pen = new Intl.NumberFormat("es-PE", {
-  style: "currency",
-  currency: "PEN",
-  maximumFractionDigits: 0,
-});
+type QuotationItem = { p: FlatProduct; qty: number };
 
-type CartItem = { p: FlatProduct; qty: number };
-
-type CartCtx = {
-  cart: Record<string, number>;
-  items: CartItem[];
+type QuotationCtx = {
+  items: QuotationItem[];
   count: number;
-  total: number;
   add: (id: string, qty?: number) => void;
-  setQty: (id: string, qty: number) => void;
+  remove: (id: string) => void;
   clear: () => void;
   open: boolean;
   setOpen: (v: boolean) => void;
   waHref: string;
 };
 
-const Ctx = createContext<CartCtx | null>(null);
+const Ctx = createContext<QuotationCtx | null>(null);
 
-export function useCart() {
+export function useQuotation(): QuotationCtx {
   const ctx = useContext(Ctx);
-  if (!ctx) throw new Error("useCart must be used within CartProvider");
+  if (!ctx) throw new Error("useQuotation must be used within QuotationProvider");
   return ctx;
 }
 
-export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [cart, setCart] = useState<Record<string, number>>({});
+/** Backward-compat alias — prefer useQuotation() in new code */
+export const useCart = useQuotation;
+
+export function QuotationProvider({ children }: { children: React.ReactNode }) {
+  const [ids, setIds] = useState<string[]>([]);
   const [open, setOpen] = useState(false);
 
+  // Persist as simple array of IDs (no prices, no quantities needed)
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE);
-      if (raw) setCart(JSON.parse(raw));
+      if (raw) setIds(JSON.parse(raw));
     } catch {}
   }, []);
+
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE, JSON.stringify(cart));
+      localStorage.setItem(STORAGE, JSON.stringify(ids));
     } catch {}
-  }, [cart]);
+  }, [ids]);
 
-  const add = (id: string, qty = 1) => {
-    setCart((c) => ({ ...c, [id]: (c[id] ?? 0) + qty }));
+  const add = (id: string) => {
+    setIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
     setOpen(true);
   };
-  const setQty = (id: string, qty: number) =>
-    setCart((c) => {
-      const next = { ...c };
-      if (qty <= 0) delete next[id];
-      else next[id] = qty;
-      return next;
-    });
-  const clear = () => setCart({});
 
-  const items = useMemo(
+  const remove = (id: string) =>
+    setIds((prev) => prev.filter((x) => x !== id));
+
+  const clear = () => setIds([]);
+
+  const items: QuotationItem[] = useMemo(
     () =>
-      Object.entries(cart)
-        .map(([id, qty]) => {
+      ids
+        .map((id) => {
           const p = allProducts.find((x) => x.id === id);
-          return p ? { p, qty } : null;
+          return p ? { p, qty: 1 } : null;
         })
-        .filter(Boolean) as CartItem[],
-    [cart]
+        .filter(Boolean) as QuotationItem[],
+    [ids]
   );
 
-  const count = items.reduce((n, i) => n + i.qty, 0);
-  const total = items.reduce((n, i) => n + i.qty * i.p.price, 0);
+  const count = items.length;
 
   const waHref = useMemo(() => {
     if (!items.length) return `https://wa.me/${site.whatsapp}`;
-    const lines = items
-      .map((i) => `• ${i.p.name} x${i.qty} — ${pen.format(i.p.price * i.qty)}`)
-      .join("\n");
-    const msg = `Hola KORIAKI IMPORT 👋 Quiero cotizar este pedido:\n\n${lines}\n\n*Total estimado: ${pen.format(
-      total
-    )}*\n\n¿Me confirman stock y precio de distribuidor?`;
-    return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`;
-  }, [items, total]);
+    return waQuotationList(items.map((i) => ({ name: i.p.name, qty: 1 })));
+  }, [items]);
 
   return (
-    <Ctx.Provider
-      value={{ cart, items, count, total, add, setQty, clear, open, setOpen, waHref }}
-    >
+    <Ctx.Provider value={{ items, count, add, remove, clear, open, setOpen, waHref }}>
       {children}
     </Ctx.Provider>
   );
 }
+
+/** Backward-compat alias — prefer QuotationProvider in new code */
+export const CartProvider = QuotationProvider;

@@ -9,21 +9,27 @@ import {
   CircleDashed,
   Shield,
   LayoutGrid,
+  Wind,
+  Layers,
+  Focus,
   type LucideIcon,
 } from "lucide-react";
 import type { IconKey } from "@/data/site";
 
 const map: Record<IconKey, LucideIcon> = {
-  convert: RefreshCw,
+  convert:   RefreshCw,
   headlight: Lightbulb,
   taillight: Disc3,
-  step: Footprints,
-  rain: CloudRain,
-  led: Zap,
-  bar: Flashlight,
-  wheel: CircleDashed,
-  bull: Shield,
-  rack: LayoutGrid,
+  step:      Footprints,
+  rain:      CloudRain,
+  led:       Zap,
+  bar:       Flashlight,
+  wheel:     CircleDashed,
+  bull:      Shield,
+  rack:      LayoutGrid,
+  hood:      Layers,
+  fender:    Wind,
+  fog:       Focus,
 };
 
 export function Icon({

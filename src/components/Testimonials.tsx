@@ -1,18 +1,33 @@
 const reviews = [
   {
-    name: "Carlos M.",
-    car: "Hilux 2019 → Raptor",
-    text: "Le hice la conversión completa a mi Hilux y quedó idéntica a una Raptor. Trabajo limpio y precio justo. Recomendados.",
+    name: "Rodrigo Quispe",
+    vehicle: "Hilux 2021 — Kit GR Sport",
+    text: "Compré el kit de conversión GR Sport para mi Hilux y el ajuste fue exacto. Las piezas llegaron perfectamente embaladas a Arequipa en 3 días. La asesoría antes de la compra fue muy clara y me confirmaron la compatibilidad con mi año de fabricación.",
   },
   {
-    name: "Luis R.",
-    car: "Faros LED Hilux",
-    text: "Los faros LED con secuencial son otro nivel. Instalación directa, llegaron rápido a provincia y la asesoría fue puntual.",
+    name: "Milagros Tarazona",
+    vehicle: "Fortuner 2019 — Faros LED",
+    text: "Los faros LED para mi Fortuner son de otro nivel. Plug & Play, sin modificaciones. Me ayudaron a verificar la versión exacta de mi vehículo antes de confirmar el pedido. Calidad de importación, se nota la diferencia con lo que hay en el mercado local.",
   },
   {
-    name: "Andrea P.",
-    car: "Pisaderas + Cubrelluvias",
-    text: "Pedí pisaderas y cubrelluvias para mi Raptor. Ajuste perfecto, sin perforar nada. Volveré por los stops LED.",
+    name: "Jean Carlos Palomino",
+    vehicle: "Ranger 2020 — Parachoques + Guardafangos",
+    text: "Pedí parachoques delantero y guardafangos estilo Raptor para mi Ranger. El equipo de Koriaki me confirmó la compatibilidad con mi modelo antes de pagar. Llegó a Trujillo sin ningún problema, todo en perfecto estado.",
+  },
+  {
+    name: "Álvaro Mendívil",
+    vehicle: "Hilux 2022 — Faros Posteriores",
+    text: "Los stops LED secuenciales son exactamente lo que buscaba. Antes de comprar me enviaron fotos reales del producto y confirmaron que era compatible con mi Hilux 2022. Excelente atención y despacho rápido desde Lima.",
+  },
+  {
+    name: "Paola Ccoyure",
+    vehicle: "Prado 2020 — Pisaderas",
+    text: "Compré las pisaderas para mi Prado y los soportes venían incluidos, todo listo para llevar al taller. La compatibilidad fue perfecta. Koriaki me orientó en la elección correcta desde el primer mensaje.",
+  },
+  {
+    name: "Diego Espinoza",
+    vehicle: "Ranger Raptor 2023 — Parrilla",
+    text: "Conseguí la parrilla Raptor style que buscaba hace meses. En otros lados no tenían stock, Koriaki la tenía disponible. Me dieron el detalle técnico de las medidas y el ajuste fue perfecto. Muy recomendados.",
   },
 ];
 
@@ -47,7 +62,7 @@ export function Testimonials() {
         </div>
       </div>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-3">
+      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {reviews.map((r) => (
           <figure
             key={r.name}
@@ -55,15 +70,15 @@ export function Testimonials() {
           >
             <Stars />
             <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-white/75">
-              “{r.text}”
+              &ldquo;{r.text}&rdquo;
             </blockquote>
             <figcaption className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-accent to-accent-soft font-display text-black">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-accent to-accent-soft font-display text-lg text-black">
                 {r.name.charAt(0)}
               </span>
               <div>
                 <div className="text-sm font-semibold">{r.name}</div>
-                <div className="text-xs text-white/50">{r.car}</div>
+                <div className="text-xs text-white/50">{r.vehicle}</div>
               </div>
             </figcaption>
           </figure>

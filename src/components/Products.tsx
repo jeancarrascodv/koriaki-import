@@ -2,15 +2,11 @@
 
 import Image from "next/image";
 import { X } from "lucide-react";
-import { categories, site, type Category } from "@/data/site";
+import { categories, type Category } from "@/data/site";
+import { waProduct } from "@/lib/wa";
 import { Icon } from "./Icons";
 import { useFilter, useLightbox } from "./Providers";
-
-const pen = new Intl.NumberFormat("es-PE", {
-  style: "currency",
-  currency: "PEN",
-  maximumFractionDigits: 0,
-});
+import { WhatsAppIcon } from "./Icons";
 
 export function Products() {
   const { filter, setFilter, resetFilter } = useFilter();
@@ -21,7 +17,6 @@ export function Products() {
       ? categories
       : categories.filter((c) => c.id === filter.category);
 
-  // Aplica filtro por modelo y descarta categorías sin resultados
   const shown = byCategory
     .map((c) => ({
       ...c,
@@ -36,19 +31,18 @@ export function Products() {
   const hasFilter = filter.category !== null || filter.model !== null;
 
   return (
-    <section id="productos" className="relative mx-auto max-w-7xl scroll-mt-24 px-5 py-24 sm:px-8">
+    <section id="catalogo" className="relative mx-auto max-w-7xl scroll-mt-24 px-5 py-24 sm:px-8">
       <div className="max-w-2xl">
         <p className="eyebrow text-xs text-accent">Catálogo</p>
         <h2 className="font-display uppercase text-balance mt-3 text-4xl sm:text-5xl">
-          Productos con precio de distribuidor
+          Kits de conversión y accesorios
         </h2>
         <p className="mt-4 text-white/65">
-          Precios referenciales de distribuidor en soles (S/). Para compras al
-          por mayor y disponibilidad, escríbenos por WhatsApp.
+          Selecciona tu vehículo para ver los productos compatibles. Cada pieza
+          importada directamente con compatibilidad garantizada por modelo y año.
         </p>
       </div>
 
-      {/* Active filter chips */}
       {hasFilter && (
         <div className="mt-6 flex flex-wrap items-center gap-2">
           <span className="text-sm text-white/55">Filtros:</span>
@@ -70,7 +64,6 @@ export function Products() {
         </div>
       )}
 
-      {/* Category filter buttons */}
       <div className="mt-5 flex flex-wrap gap-2">
         <FilterBtn label="Todos" active={filter.category === null} onClick={() => setFilter({ category: null })} />
         {categories.map((c) => (
@@ -97,11 +90,6 @@ export function Products() {
           ))}
         </div>
       )}
-
-      <p className="mt-10 text-xs text-white/40">
-        * Precios referenciales sujetos a stock y tipo de cambio. No incluyen
-        instalación salvo se indique. Consulta promociones por volumen.
-      </p>
     </section>
   );
 }
@@ -143,7 +131,7 @@ function CategoryBlock({
       <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {cat.products.map((p, i) => (
           <article
-            key={p.name}
+            key={p.slug}
             className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[0.05]"
           >
             <button
@@ -164,37 +152,36 @@ function CategoryBlock({
                   {p.tag}
                 </span>
               )}
-              <span className="absolute bottom-2 right-2 rounded-full bg-black/55 px-2 py-1 text-[10px] font-medium text-white/90 opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
-                Ampliar
-              </span>
+              {p.transforms && (
+                <span className="absolute bottom-2 left-2 rounded-full border border-accent/40 bg-black/60 px-2 py-0.5 text-[10px] font-semibold text-accent backdrop-blur">
+                  {p.transforms}
+                </span>
+              )}
             </button>
 
             <div className="flex flex-1 flex-col p-5">
               <h4 className="text-base font-bold leading-snug">{p.name}</h4>
               <p className="mt-2 flex-1 text-sm text-white/60">{p.desc}</p>
-              <div className="mt-5 flex items-end justify-between">
-                <div>
-                  <div className="text-[11px] uppercase tracking-wide text-white/45">
-                    Distribuidor
-                  </div>
-                  <div className="font-cond text-2xl font-bold text-accent-2">
-                    {pen.format(p.price)}
-                    {p.unit && (
-                      <span className="ml-1 text-xs font-medium text-white/45">/ {p.unit}</span>
-                    )}
-                  </div>
-                </div>
-                <a
-                  href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
-                    `Hola KORIAKI IMPORT, me interesa: ${p.name} (${pen.format(p.price)})`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-white/15 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-black"
-                >
-                  Cotizar
-                </a>
+
+              <div className="mt-4 flex flex-wrap gap-1">
+                {p.fits.slice(0, 3).map((f) => (
+                  <span key={f} className="rounded bg-white/8 px-1.5 py-0.5 text-[10px] text-white/50">{f}</span>
+                ))}
               </div>
+
+              <a
+                href={waProduct({
+                  name: p.name,
+                  categoryTitle: cat.title,
+                  fits: p.fits,
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex items-center justify-center gap-2 rounded-full border border-white/15 py-2 text-xs font-semibold text-white transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-black"
+              >
+                <WhatsAppIcon className="h-3.5 w-3.5" />
+                Solicitar cotización
+              </a>
             </div>
           </article>
         ))}

@@ -3,29 +3,31 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, Plus } from "lucide-react";
+import { Search } from "lucide-react";
 import { allProducts, categories, type Fit } from "@/data/site";
-import { useCart } from "./cart/CartProvider";
+import { waProduct } from "@/lib/wa";
+import { WhatsAppIcon } from "./Icons";
 
-const pen = new Intl.NumberFormat("es-PE", {
-  style: "currency",
-  currency: "PEN",
-  maximumFractionDigits: 0,
-});
-
-const models: (Fit | "Todos")[] = ["Todos", "Hilux", "Raptor", "Ranger"];
-type Sort = "rel" | "asc" | "desc";
+const models: (Fit | "Todos")[] = [
+  "Todos",
+  "Hilux",
+  "Fortuner",
+  "Fortuner Legender",
+  "Prado",
+  "Revo",
+  "Ranger",
+  "Ranger Raptor",
+  "F150",
+];
 
 export function Marketplace() {
-  const { add } = useCart();
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<string | null>(null);
   const [model, setModel] = useState<Fit | "Todos">("Todos");
-  const [sort, setSort] = useState<Sort>("rel");
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    let list = allProducts.filter((p) => {
+    return allProducts.filter((p) => {
       const matchQ =
         !q || p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
       const matchCat = !cat || p.categoryId === cat;
@@ -33,20 +35,19 @@ export function Marketplace() {
         model === "Todos" || p.fits.includes(model) || p.fits.includes("Universal");
       return matchQ && matchCat && matchModel;
     });
-    if (sort === "asc") list = [...list].sort((a, b) => a.price - b.price);
-    if (sort === "desc") list = [...list].sort((a, b) => b.price - a.price);
-    return list;
-  }, [query, cat, model, sort]);
+  }, [query, cat, model]);
 
   return (
-    <div className="min-h-screen pb-24">
+    <div className="min-h-screen pb-32">
       {/* Title */}
       <section className="mx-auto max-w-7xl px-5 pt-10 sm:px-8">
-        <p className="eyebrow text-xs text-accent">Marketplace</p>
-        <h1 className="font-display uppercase mt-3 text-4xl sm:text-6xl">Tienda KORIAKI</h1>
+        <p className="eyebrow text-xs text-accent">Catálogo</p>
+        <h1 className="font-display uppercase mt-3 text-4xl sm:text-6xl">Catálogo KORIAKI</h1>
         <p className="mt-3 max-w-2xl text-white/65">
-          Arma tu pedido con precios de distribuidor y envíalo por WhatsApp en un
-          clic. {allProducts.length} productos para Hilux, Raptor y más.
+          Kits de conversión, faros LED, parachoques, guardafangos y accesorios
+          exteriores premium para Toyota y Ford.{" "}
+          <strong className="text-white/80">{allProducts.length} productos disponibles.</strong>{" "}
+          Solicita tu cotización por WhatsApp.
         </p>
       </section>
 
@@ -58,7 +59,7 @@ export function Marketplace() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar faros, aros, defensa…"
+              placeholder="Buscar faros, parachoques, kit conversión…"
               className="w-full rounded-xl border border-white/15 bg-white/[0.04] py-3 pl-11 pr-4 text-sm text-white outline-none transition-colors focus:border-accent"
             />
           </div>
@@ -70,36 +71,29 @@ export function Marketplace() {
               className="rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white outline-none focus:border-accent"
             >
               {models.map((m) => (
-                <option key={m} className="bg-steel">{m === "Todos" ? "Todos los modelos" : m}</option>
+                <option key={m} className="bg-steel">
+                  {m === "Todos" ? "Todos los modelos" : m}
+                </option>
               ))}
-            </select>
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value as Sort)}
-              className="rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white outline-none focus:border-accent"
-            >
-              <option value="rel" className="bg-steel">Relevancia</option>
-              <option value="asc" className="bg-steel">Precio: menor a mayor</option>
-              <option value="desc" className="bg-steel">Precio: mayor a menor</option>
             </select>
           </div>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
-          <ChipBtn label="Todo" active={cat === null} onClick={() => setCat(null)} />
+          <ChipBtn label="Todos" active={cat === null} onClick={() => setCat(null)} />
           {categories.map((c) => (
             <ChipBtn key={c.id} label={c.title} active={cat === c.id} onClick={() => setCat(c.id)} />
           ))}
         </div>
 
-        <p className="mt-4 text-sm text-white/50">{filtered.length} resultados</p>
+        <p className="mt-4 text-sm text-white/50">{filtered.length} productos encontrados</p>
       </section>
 
-      {/* Grid */}
+      {/* Product grid */}
       <section className="mx-auto mt-6 max-w-7xl px-5 sm:px-8">
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-12 text-center text-white/65">
-            Sin resultados. Prueba otra búsqueda o quita filtros.
+            Sin resultados. Prueba otra búsqueda o quita los filtros.
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -125,29 +119,38 @@ export function Marketplace() {
                       {p.tag}
                     </span>
                   )}
+                  {p.transforms && (
+                    <span className="absolute bottom-2 left-2 rounded-full border border-accent/40 bg-black/60 px-2 py-0.5 text-[10px] font-semibold text-accent backdrop-blur">
+                      {p.transforms}
+                    </span>
+                  )}
                 </Link>
+
                 <div className="flex flex-1 flex-col p-4">
                   <Link href={`/tienda/${p.id}`} className="text-sm font-bold leading-snug hover:text-accent">
                     {p.name}
                   </Link>
                   <p className="mt-1.5 line-clamp-2 flex-1 text-xs text-white/55">{p.desc}</p>
+
                   <div className="mt-3 flex items-center gap-1.5">
                     {p.fits.filter((f) => f !== "Universal").slice(0, 3).map((f) => (
                       <span key={f} className="rounded bg-white/8 px-1.5 py-0.5 text-[10px] text-white/55">{f}</span>
                     ))}
                   </div>
-                  <div className="mt-3 flex items-end justify-between">
-                    <div className="font-cond text-xl font-bold text-accent-2">
-                      {pen.format(p.price)}
-                      {p.unit && <span className="ml-1 text-[11px] font-medium text-white/45">/ {p.unit}</span>}
-                    </div>
-                    <button
-                      onClick={() => add(p.id)}
-                      className="flex items-center gap-1 rounded-full bg-accent px-3 py-1.5 text-xs font-bold text-black transition-transform hover:scale-105"
-                    >
-                      <Plus className="h-3.5 w-3.5" /> Agregar
-                    </button>
-                  </div>
+
+                  <a
+                    href={waProduct({
+                      name: p.name,
+                      categoryTitle: p.categoryTitle,
+                      fits: p.fits,
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center justify-center gap-2 rounded-full bg-accent px-3 py-2 text-xs font-bold text-black transition-transform hover:scale-105"
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5" />
+                    Solicitar cotización
+                  </a>
                 </div>
               </article>
             ))}

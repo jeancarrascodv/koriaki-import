@@ -1,10 +1,11 @@
 import Image from "next/image";
 
 const perks = [
-  "Importación directa: mejores precios para distribuidores y talleres",
-  "Disponibilidad permanente en nuestro almacén de Ate, Lima",
-  "Productos específicos por modelo y año — ajuste garantizado",
-  "Asesoría técnica y soporte posventa",
+  "Importación directa desde fabricantes — sin intermediarios",
+  "Stock permanente en Lima disponible para despacho inmediato",
+  "Compatibilidad verificada por modelo, versión y año de fabricación",
+  "Asesoría de compra personalizada antes de tu pedido",
+  "Envíos a todo el Perú por courier o agencia de transporte",
 ];
 
 export function About() {
@@ -12,16 +13,21 @@ export function About() {
     <section id="nosotros" className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div>
-          <p className="eyebrow text-xs text-accent">Nosotros</p>
+          <p className="eyebrow text-xs text-accent">Quiénes somos</p>
           <h2 className="font-display uppercase text-balance mt-3 text-5xl sm:text-6xl">
             KORIAKI IMPORT
           </h2>
           <p className="mt-5 text-white/70">
-            Somos importadores y distribuidores especializados en la
-            modernización de camionetas <strong>Hilux</strong> y{" "}
-            <strong>Raptor</strong>. Trabajamos con talleres, distribuidores
-            y clientes finales en todo el Perú, ofreciendo conversiones, faros LED
-            y accesorios de alta calidad a precio de importación.
+            Somos importadores y distribuidores especializados en kits de
+            conversión y accesorios exteriores premium para{" "}
+            <strong>Toyota</strong> y <strong>Ford</strong>. Trabajamos con
+            talleres, distribuidores y clientes finales en todo el Perú,
+            suministrando piezas de alta calidad a precio de importación directa.
+          </p>
+          <p className="mt-3 text-white/70">
+            <strong>Vendemos las piezas.</strong> Tú las llevas al taller de tu
+            confianza. Nuestro rol es garantizarte el producto correcto para tu
+            vehículo, con stock disponible y despacho rápido.
           </p>
 
           <ul className="mt-7 space-y-3">
@@ -39,11 +45,10 @@ export function About() {
         </div>
 
         <div className="space-y-5">
-          {/* Feature photo */}
           <div className="relative overflow-hidden rounded-3xl">
             <Image
               src="/img/tacoma-forest.jpg"
-              alt="Camioneta 4x4 modernizada"
+              alt="Camioneta 4x4 con kit de conversión premium"
               width={1100}
               height={760}
               sizes="(max-width: 1024px) 100vw, 560px"
@@ -52,45 +57,44 @@ export function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             <div className="absolute bottom-4 left-5 right-5">
               <p className="text-sm font-semibold text-white">
-                Especialistas en 4x4 · Hilux y Raptor
+                Especialistas en Toyota y Ford · Importación directa
               </p>
             </div>
           </div>
 
-          {/* Address card */}
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent p-8">
             <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />
-            <h3 className="text-lg font-bold">Visítanos</h3>
-          <p className="mt-4 text-sm leading-relaxed text-white/70">
-            <span className="text-white/45">Almacén</span>
-            <br />
-            Separadora Industrial
-            <br />
-            Ate — Lima, Perú
-          </p>
-          <div className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-6 text-sm">
-            <div>
-              <div className="text-white/45">Atención</div>
-              <div className="mt-1 font-medium">Lun – Sáb</div>
-              <div className="text-white/70">9 a.m. – 6 p.m.</div>
+            <h3 className="text-lg font-bold">Visítanos o escríbenos</h3>
+            <p className="mt-4 text-sm leading-relaxed text-white/70">
+              <span className="text-white/45">Almacén</span>
+              <br />
+              Separadora Industrial
+              <br />
+              Ate — Lima, Perú
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-6 text-sm">
+              <div>
+                <div className="text-white/45">Atención</div>
+                <div className="mt-1 font-medium">Lun – Sáb</div>
+                <div className="text-white/70">9 a.m. – 6 p.m.</div>
+              </div>
+              <div>
+                <div className="text-white/45">Despachos</div>
+                <div className="mt-1 font-medium">A todo el Perú</div>
+                <div className="text-white/70">Courier / agencia</div>
+              </div>
             </div>
-            <div>
-              <div className="text-white/45">Despachos</div>
-              <div className="mt-1 font-medium">A todo el Perú</div>
-              <div className="text-white/70">Courier / agencia</div>
-            </div>
-          </div>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Separadora+Industrial+Ate+Lima"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
-          >
-            Ver en Google Maps
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Separadora+Industrial+Ate+Lima"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
+            >
+              Ver en Google Maps
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>

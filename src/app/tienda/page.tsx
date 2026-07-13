@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Marketplace } from "@/components/Marketplace";
 
 export const metadata: Metadata = {
-  title: "Tienda — Marketplace de accesorios 4x4",
+  title: "Catálogo — Kits de conversión y accesorios 4x4",
   description:
-    "Marketplace KORIAKI IMPORT: faros LED, aros, defensas, barras LED, pisaderas y más para Hilux y Raptor. Arma tu pedido con precios de distribuidor y cotiza por WhatsApp.",
+    "Catálogo KORIAKI IMPORT: kits de conversión, faros LED, parachoques, guardafangos y accesorios exteriores premium para Toyota Hilux, Fortuner, Prado y Ford Ranger. Solicita tu cotización por WhatsApp.",
 };
 
 export default function TiendaPage() {

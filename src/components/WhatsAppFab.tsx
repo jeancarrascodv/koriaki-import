@@ -1,12 +1,10 @@
-import { site } from "@/data/site";
+import { waGeneral } from "@/lib/wa";
 import { WhatsAppIcon } from "./Icons";
 
 export function WhatsAppFab() {
   return (
     <a
-      href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
-        "Hola KORIAKI IMPORT, quiero más información"
-      )}`}
+      href={waGeneral}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escríbenos por WhatsApp"

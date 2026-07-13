@@ -30,20 +30,20 @@ export default function Home() {
             <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-accent/25 blur-3xl" />
             <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
-                <p className="eyebrow text-xs text-accent">Tienda</p>
+                <p className="eyebrow text-xs text-accent">Catálogo completo</p>
                 <h3 className="font-display uppercase mt-2 text-3xl sm:text-4xl">
-                  Arma tu pedido en la tienda
+                  Explora todos nuestros productos
                 </h3>
                 <p className="mt-2 max-w-xl text-white/65">
-                  Explora todo el catálogo, agrega varios productos y cotiza por
-                  WhatsApp con un clic. Precios de distribuidor.
+                  Busca por modelo, categoría o nombre. Agrega lo que te interesa
+                  a tu lista y solicita una cotización personalizada por WhatsApp.
                 </p>
               </div>
               <a
                 href="/tienda"
                 className="shrink-0 rounded-full bg-gradient-to-r from-accent to-accent-soft px-8 py-4 font-cond text-base font-bold uppercase tracking-wide text-black transition-transform hover:scale-105"
               >
-                Ir a la tienda →
+                Ver catálogo →
               </a>
             </div>
           </div>

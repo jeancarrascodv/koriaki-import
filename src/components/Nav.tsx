@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
-import { site } from "@/data/site";
+import { waQuote } from "@/lib/wa";
 
 const links = [
-  { href: "/tienda", label: "Tienda" },
+  { href: "/tienda", label: "Catálogo" },
   { href: "#galeria", label: "Galería" },
-  { href: "#productos", label: "Productos" },
+  { href: "#catalogo", label: "Productos" },
   { href: "#servicios", label: "Servicios" },
   { href: "#contacto", label: "Contacto" },
 ];
@@ -34,7 +34,7 @@ export function Nav() {
       {!scrolled && (
         <div className="hidden bg-gradient-to-r from-accent to-accent-soft text-center text-[12px] font-semibold text-black sm:block">
           <div className="mx-auto max-w-7xl px-8 py-1.5">
-            🚚 Envíos a todo el Perú · Precios de distribuidor · Stock en Ate, Lima
+            🚚 Envíos a todo el Perú · Importación directa · Stock en Ate, Lima
           </div>
         </div>
       )}
@@ -54,7 +54,7 @@ export function Nav() {
             </a>
           ))}
           <a
-            href={`https://wa.me/${site.whatsapp}`}
+            href={waQuote}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-black transition-transform hover:scale-105"
@@ -90,7 +90,7 @@ export function Nav() {
               </a>
             ))}
             <a
-              href={`https://wa.me/${site.whatsapp}`}
+              href={waQuote}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 rounded-lg bg-accent px-3 py-3 text-center text-sm font-semibold text-black"
